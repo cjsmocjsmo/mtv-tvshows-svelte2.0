@@ -27,7 +27,7 @@
 		console.log("WebSocket connection created: " + wsuri);
 		ws1.onopen = function() {
 			console.log("WebSocket connection opened: " + wsuri);
-			ws1.send(JSON.stringify({"command": "halos1"}));
+			ws1.send(JSON.stringify({"command": "lostinspaces1"}));
 		};
 		ws1.onmessage = function(event) {
 			datas1 = JSON.parse(event.data);
@@ -38,7 +38,7 @@
 		console.log("WebSocket connection created: " + wsuri);
 		ws2.onopen = function() {
 			console.log("WebSocket connection opened: " + wsuri);
-			ws2.send(JSON.stringify({"command": "halos2"}));
+			ws2.send(JSON.stringify({"command": "lostinspaces2"}));
 		};
 		ws2.onmessage = function(event) {
 			datas2 = JSON.parse(event.data);
@@ -49,7 +49,7 @@
 		console.log("WebSocket connection created: " + wsuri);
 		ws3.onopen = function() {
 			console.log("WebSocket connection opened: " + wsuri);
-			ws3.send(JSON.stringify({"command": "halos3"}));
+			ws3.send(JSON.stringify({"command": "lostinspaces3"}));
 		};
 		ws3.onmessage = function(event) {
 			datas3 = JSON.parse(event.data);
