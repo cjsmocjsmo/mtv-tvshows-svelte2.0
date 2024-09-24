@@ -14,7 +14,7 @@
 </script>
 
 <main>
-	<BackArrow path="/TVShows/tvshows" />
+	<BackArrow path="/" />
 	<div>
 		<h1>Prodigy</h1>
 	</div>

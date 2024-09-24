@@ -14,7 +14,7 @@
 </script>
 
 <main>
-	<BackArrow path="/TVShows/tvshows" />
+	<BackArrow path="/" />
 	<div>
 		<h1>The Last Of Us</h1>
 	</div>

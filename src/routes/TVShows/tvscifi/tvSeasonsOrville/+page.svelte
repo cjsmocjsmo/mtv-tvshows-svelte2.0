@@ -24,7 +24,7 @@
 </script>
 
 <main>
-	<BackArrow path="/TVShows/tvshows" />
+	<BackArrow path="/" />
 	<div>
 		<h1>Orville</h1>
 	</div>

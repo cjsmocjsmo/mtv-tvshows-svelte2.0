@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	
+	const wsuri = "ws://10.0.4.41:8765";
 	
 	function playtvshow(tvid) {
 		let ws = new WebSocket(wsuri);
