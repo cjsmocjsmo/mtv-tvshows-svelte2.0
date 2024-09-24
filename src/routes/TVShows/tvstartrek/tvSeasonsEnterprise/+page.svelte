@@ -2,24 +2,71 @@
 	import { onMount } from 'svelte';
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	
-	
+	const wsuri = "ws://10.0.4.41:8765";
+	let data = [];
+	let datas1 = [];
+	let datas2 = [];
+	let datas3 = [];
+	let datas4 = [];
 
-	let data1 = [];
-	let data2 = [];
-	let data3 = [];
+	function playtvshow(tvid) {
+		let ws = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
+			ws.send(JSON.stringify({"command": "play"}));
+		};
+		ws.onmessage = function(event) {
+			data = JSON.parse(event.data);
+			console.log("Message received from server: ", data);
+		};
+	}
 
 	onMount(async () => {
-		let addr = 'http://10.0.4.41:8080/startrek/enterprise/01';
-		const res = await fetch(addr);
-		data1 = await res.json();
+		let ws1 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws1.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws1.send(JSON.stringify({"command": "enterprises1"}));
+		};
+		ws1.onmessage = function(event) {
+			datas1 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas1);
+		};
 
-		let addr2 = 'http://10.0.4.41:8080/startrek/enterprise/02';
-		const res2 = await fetch(addr2);
-		data2 = await res2.json();
+		let ws2 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws2.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws2.send(JSON.stringify({"command": "enterprises2"}));
+		};
+		ws2.onmessage = function(event) {
+			datas2 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas2);
+		};
 
-		let addr3 = 'http://10.0.4.41:8080/startrek/enterprise/03';
-		const res3 = await fetch(addr3);
-		data3 = await res3.json();
+		let ws3 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws3.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws3.send(JSON.stringify({"command": "enterprises3"}));
+		};
+		ws3.onmessage = function(event) {
+			datas3 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas3);
+		};
+
+		let ws4 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws4.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws4.send(JSON.stringify({"command": "enterprises4"}));
+		};
+		ws4.onmessage = function(event) {
+			datas4 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas4);
+		};
 	});
 </script>
 
@@ -31,24 +78,32 @@
 	<div>
 		<h1>Season 1</h1>
 		<div class="seaList">
-			{#each data1 as d}
-				<SeasonButton info={d} />
+			{#each datas1 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<h1>Season 2</h1>
 		<div class="seaList">
-			{#each data2 as d2}
-				<SeasonButton info={d2} />
+			{#each datas2 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<h1>Season 3</h1>
 		<div class="seaList">
-			{#each data3 as d3}
-				<SeasonButton info={d3} />
+			{#each datas3 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+			{/each}
+		</div>
+	</div>
+	<div>
+		<h1>Season 4</h1>
+		<div class="seaList">
+			{#each datas4 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
@@ -69,5 +124,19 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
+	}
+	button {
+		background-color: #4caf50;
+		border-style: solid;
+		border-color: black;
+		border-width: 2px;
+		border-radius: 4px;
+		color: black;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 20px;
+		margin: 4px 2px;
 	}
 </style>

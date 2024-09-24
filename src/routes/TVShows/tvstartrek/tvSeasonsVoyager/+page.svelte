@@ -2,44 +2,108 @@
 	import { onMount } from 'svelte';
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	
+	const wsuri = "ws://10.0.4.41:8765";
 	
+	let data = [];
+	let datas1 = [];
+	let datas2 = [];
+	let datas3 = [];
+	let datas4 = [];
+	let datas5 = [];
+	let datas6 = [];
+	let datas7 = [];
 
-	let data1 = [];
-	let data2 = [];
-	let data3 = [];
-	let data4 = [];
-	let data5 = [];
-	let data6 = [];
-	let data7 = [];
+	function playtvshow(tvid) {
+		let ws = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
+			ws.send(JSON.stringify({"command": "play"}));
+		};
+		ws.onmessage = function(event) {
+			data = JSON.parse(event.data);
+			console.log("Message received from server: ", data);
+		};
+	}
 
 	onMount(async () => {
-		let addr = 'http://10.0.4.41:8080/startrek/voyager/01';
-		const res = await fetch(addr);
-		data1 = await res.json();
+		let ws1 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws1.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws1.send(JSON.stringify({"command": "voyagers1"}));
+		};
+		ws1.onmessage = function(event) {
+			datas1 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas1);
+		};
 
-		let addr2 = 'http://10.0.4.41:8080/startrek/voyager/02';
-		const res2 = await fetch(addr2);
-		data2 = await res2.json();
+		let ws2 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws2.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws2.send(JSON.stringify({"command": "voyagers2"}));
+		};
+		ws2.onmessage = function(event) {
+			datas2 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas2);
+		};
 
-		let addr3 = 'http://10.0.4.41:8080/startrek/voyager/03';
-		const res3 = await fetch(addr3);
-		data3 = await res3.json();
+		let ws3 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws3.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws3.send(JSON.stringify({"command": "voyagers3"}));
+		};
+		ws3.onmessage = function(event) {
+			datas3 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas3);
+		};
 
-		let addr4 = 'http://10.0.4.41:8080/startrek/voyager/04';
-		const res4 = await fetch(addr4);
-		data4 = await res4.json();
+		let ws4 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws4.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws4.send(JSON.stringify({"command": "voyagers4"}));
+		};
+		ws4.onmessage = function(event) {
+			datas4 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas4);
+		};
 
-		let addr5 = 'http://10.0.4.41:8080/startrek/voyager/05';
-		const res5 = await fetch(addr5);
-		data5 = await res5.json();
+		let ws5 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws5.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws5.send(JSON.stringify({"command": "voyagers5"}));
+		};
+		ws5.onmessage = function(event) {
+			datas5 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas5);
+		};
 
-		let addr6 = 'http://10.0.4.41:8080/startrek/voyager/06';
-		const res6 = await fetch(addr6);
-		data6 = await res6.json();
+		let ws6 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws6.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws6.send(JSON.stringify({"command": "voyagers6"}));
+		};
+		ws6.onmessage = function(event) {
+			datas6 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas6);
+		};
 
-		let addr7 = 'http://10.0.4.41:8080/startrek/voyager/07';
-		const res7 = await fetch(addr7);
-		data7 = await res7.json();
+		let ws7 = new WebSocket(wsuri);
+		console.log("WebSocket connection created: " + wsuri);
+		ws7.onopen = function() {
+			console.log("WebSocket connection opened: " + wsuri);
+			ws7.send(JSON.stringify({"command": "voyagers7"}));
+		};
+		ws7.onmessage = function(event) {
+			datas7 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas7);
+		};
 	});
 </script>
 
@@ -51,56 +115,56 @@
 	<div>
 		<h1>Season 1</h1>
 		<div class="seaList">
-			{#each data1 as d}
-				<SeasonButton info={d} />
+			{#each datas1 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<h1>Season 2</h1>
 		<div class="seaList">
-			{#each data2 as d2}
-				<SeasonButton info={d2} />
+			{#each datas2 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<h1>Season 3</h1>
 		<div class="seaList">
-			{#each data3 as d3}
-				<SeasonButton info={d3} />
+			{#each datas3 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<h1>Season 4</h1>
 		<div class="seaList">
-			{#each data4 as d4}
-				<SeasonButton info={d4} />
+			{#each datas4 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<h1>Season 5</h1>
 		<div class="seaList">
-			{#each data5 as d5}
-				<SeasonButton info={d5} />
+			{#each datas5 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<h1>Season 6</h1>
 		<div class="seaList">
-			{#each data6 as d6}
-				<SeasonButton info={d6} />
+			{#each datas6 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<h1>Season 7</h1>
 		<div class="seaList">
-			{#each data7 as d7}
-				<SeasonButton info={d7} />
+			{#each datas7 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
@@ -121,5 +185,19 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
+	}
+	button {
+		background-color: #4caf50;
+		border-style: solid;
+		border-color: black;
+		border-width: 2px;
+		border-radius: 4px;
+		color: black;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 20px;
+		margin: 4px 2px;
 	}
 </style>

@@ -3,6 +3,11 @@
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	
 	const wsuri = "ws://10.0.4.41:8765";
+
+	let data = [];
+	let datas1 = [];
+	let datas2 = [];
+	let datas3 = [];
 	
 	function playtvshow(tvid) {
 		let ws = new WebSocket(wsuri);
@@ -17,10 +22,6 @@
 			console.log("Message received from server: ", data);
 		};
 	}
-
-	let datas1 = [];
-	let datas2 = [];
-	let datas3 = [];
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
