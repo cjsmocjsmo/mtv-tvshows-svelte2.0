@@ -3,15 +3,15 @@
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	
 	let data = [];
-	let datas1 = [];
+	let data1 = [];
 	let datas2 = [];
 	const wsuri = "ws://10.0.4.41:8765";
 
 	function playtvshow(tvid) {
 		let ws = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
+		
 		ws.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
+			
 			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
 			ws.send(JSON.stringify({"command": "play"}));
 		};
@@ -23,20 +23,20 @@
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
+		
 		ws1.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
+			
 			ws1.send(JSON.stringify({"command": "visionss1"}));
 		};
 		ws1.onmessage = function(event) {
-			datas1 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas1);
+			data1 = JSON.parse(event.data);
+			console.log("Message received from server: ", data1);
 		};
 
 		let ws2 = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
+		
 		ws2.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
+			
 			ws2.send(JSON.stringify({"command": "visionss2"}));
 		};
 		ws2.onmessage = function(event) {
@@ -55,7 +55,7 @@
 	<div>
 		<h1>Season 1</h1>
 		<div class="seaList">
-			{#each datas1 as d}
+			{#each data1 as d}
 				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>

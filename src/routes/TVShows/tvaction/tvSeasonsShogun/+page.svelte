@@ -8,28 +8,22 @@
 
 	function playtvshow(tvid) {
 		let ws = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
 		ws.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
 			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
 			ws.send(JSON.stringify({"command": "play"}));
 		};
 		ws.onmessage = function(event) {
 			data = JSON.parse(event.data);
-			console.log("Message received from server: ", data);
 		};
 	}
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
 		ws1.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
 			ws1.send(JSON.stringify({"command": "shogun"}));
 		};
 		ws1.onmessage = function(event) {
 			data2 = JSON.parse(event.data);
-			console.log("Message received from server: ", data2);
 		};
 	});
 </script>

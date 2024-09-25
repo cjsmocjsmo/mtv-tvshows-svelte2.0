@@ -12,7 +12,6 @@
 		ws1.onopen = function () {
 			ws1.send(playcmd);
 		};
-		console.log("play button clicked");
 	}
 
 	let pause = () => {
@@ -22,7 +21,6 @@
 		ws1.onopen = function () {
 			ws1.send(pausecmd);
 		};
-		console.log("pause button clicked");
 	}
 
 	let stop = () => {
@@ -32,7 +30,6 @@
 		ws1.onopen = function () {
 			ws1.send(stopcmd);
 		};
-		console.log("stop button clicked");
 	}
 
 	let next = () => {

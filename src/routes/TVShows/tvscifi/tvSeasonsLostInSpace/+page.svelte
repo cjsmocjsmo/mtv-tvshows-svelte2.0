@@ -6,9 +6,9 @@
 	
 	function playtvshow(tvid) {
 		let ws = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
+		
 		ws.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
+			
 			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
 			ws.send(JSON.stringify({"command": "play"}));
 		};
@@ -24,9 +24,9 @@
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
+		
 		ws1.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
+			
 			ws1.send(JSON.stringify({"command": "lostinspaces1"}));
 		};
 		ws1.onmessage = function(event) {
@@ -35,9 +35,9 @@
 		};
 
 		let ws2 = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
+		
 		ws2.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
+			
 			ws2.send(JSON.stringify({"command": "lostinspaces2"}));
 		};
 		ws2.onmessage = function(event) {
@@ -46,9 +46,9 @@
 		};
 
 		let ws3 = new WebSocket(wsuri);
-		console.log("WebSocket connection created: " + wsuri);
+		
 		ws3.onopen = function() {
-			console.log("WebSocket connection opened: " + wsuri);
+			
 			ws3.send(JSON.stringify({"command": "lostinspaces3"}));
 		};
 		ws3.onmessage = function(event) {
