@@ -10,8 +10,6 @@
 	import Hawkeye from '$lib/images/mcu/Hawkeye.avif';
 	import MoonKnightCard from '$lib/components/tvmcu/TVMoonKnightCard.svelte';
 	import MoonKnight from '$lib/images/mcu/moonknight.avif';
-	import MsMarvelCard from '$lib/components/tvmcu/TVMsMarvelCard.svelte';
-	import MsMarvel from '$lib/images/mcu/ms_marvel.avif';
 	import SheHulkCard from '$lib/components/tvmcu/TVSheHulkCard.svelte';
 	import SheHulk from '$lib/images/mcu/shehulk.avif';
 	import WandavisionCard from '$lib/components/tvmcu/TVWandavisionCard.svelte';
@@ -27,7 +25,6 @@
 			<SecretInvasionCard src={SecretInvasionImg} />
 			<TvIAmGrootCard src={IAmGroot} />
 			<TvLokiCard src={Loki} />
-			<MsMarvelCard src={MsMarvel} />
 			<MoonKnightCard src={MoonKnight} />
 			<SheHulkCard src={SheHulk} />
 			<TvHawkeyeCard src={Hawkeye} />
