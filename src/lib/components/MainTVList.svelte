@@ -9,7 +9,7 @@
 	<a data-sveltekit-preload-data="tap" href="TVShows/tvscifi"><p class="mov">SciFi</p></a>
 	<a data-sveltekit-preload-data="tap" href="TVShows/tvstartrek"><p class="mov">Star Trek</p></a>
 	<a data-sveltekit-preload-data="tap" href="TVShows/tvstarwars"><p class="mov">Star Wars</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvwestersn"><p class="mov">Westerns</p></a>
+	<a data-sveltekit-preload-data="tap" href="TVShows/tvwesterns"><p class="mov">Westerns</p></a>
 </div>
 
 <style>
