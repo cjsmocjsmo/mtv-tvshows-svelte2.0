@@ -24,7 +24,6 @@ COPY build/_app/immutable/assets/*.avif /usr/share/nginx/html/_app/immutable/ass
 COPY build/_app/immutable/chunks/*.js /usr/share/nginx/html/_app/immutable/chunks/
 COPY build/_app/immutable/entry/*.js /usr/share/nginx/html/_app/immutable/entry/
 COPY build/_app/immutable/nodes/*.js /usr/share/nginx/html/_app/immutable/nodes/
-COPY build/Movies/*.html /usr/share/nginx/html/Movies/
 COPY build/TVShows/*.html /usr/share/nginx/html/TVShows/
 
 # EXPOSE 8090

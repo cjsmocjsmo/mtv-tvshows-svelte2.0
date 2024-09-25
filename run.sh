@@ -31,7 +31,7 @@ if [ "$1" -eq 64 ]; then
     cp -pvr ./RPI/64/Dockerfile ./Dockerfile;
 fi
 
-git pull https://github.com/cjsmocjsmo/mtv-svelte2.0.git;
+git pull https://github.com/cjsmocjsmo/mtv-tvshows-svelte2.0.git;
 
 # If all checks pass, print the arguments
 
@@ -40,9 +40,9 @@ count=$((count1+1-1))
 minusone=$((count-1))
 
 echo "Version: $2";
-echo "mtvsvelte:$2";
-echo "mtvsvelte$count";
-echo "mtvsvelte$minusone";
+echo "mtvtvshowssvelte:$2";
+echo "mtvtvshowssvelte$count";
+echo "mtvtvshowssvelte$minusone";
 
 if [ "$minusone" -eq 0 ]; then
     
@@ -50,9 +50,9 @@ if [ "$minusone" -eq 0 ]; then
 
     npm run build;
 
-    docker build -t mtvsvelte:$2 .;
+    docker build -t mtvtvshowssvelte:$2 .;
     
-    docker run --name mtvsvelte1 -d -p 8090:80 mtvsvelte:$2;
+    docker run --name mtvtvshowssvelte1 -d -p 8091:80 mtvtvshowssvelte:$2;
 
     rm ./Dockerfile;
 
@@ -62,17 +62,17 @@ fi
 if [ "$minusone" -eq 1 ]; then
     # Build the Docker image
 
-    docker stop mtvsvelte1;
+    docker stop mtvtvshowssvelte1;
 
-    docker rm mtvsvelte1;
+    docker rm mtvtvshowssvelte1;
 
     npm install;
 
     npm run build;
 
-    docker build -t mtvsvelte:$2 .;
+    docker build -t mtvtvshowssvelte:$2 .;
 
-    docker run --name mtvsvelte$count -d -p 8090:80 mtvsvelte:$2;
+    docker run --name mtvtvshowssvelte$count -d -p 8091:80 mtvtvshowssvelte:$2;
 
     rm ./Dockerfile;
 
@@ -83,17 +83,17 @@ fi
 if [ "$minusone" -gt 1 ]; then
     # Build the Docker image
 
-    docker stop mtvsvelte$minusone;
+    docker stop mtvtvshowssvelte$minusone;
 
-    docker rm mtvsvelte$minusone;
+    docker rm mtvtvshowssvelte$minusone;
 
     npm install;
 
     npm run build;
 
-    docker build -t mtvsvelte:$2 .;
+    docker build -t mtvtvshowssvelte:$2 .;
 
-    docker run --name mtvsvelte$count -d -p 8090:80 mtvsvelte:$2;
+    docker run --name mtvtvshowssvelte$count -d -p 8091:80 mtvtvshowssvelte:$2;
 
     rm ./Dockerfile;
 
