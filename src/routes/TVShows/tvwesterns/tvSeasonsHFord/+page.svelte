@@ -43,7 +43,7 @@
 	<div>
 		<h1>Season 1</h1>
 		<div class="seaList">
-			{#each data as d}
+			{#each data1 as d}
 				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>

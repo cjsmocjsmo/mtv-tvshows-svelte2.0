@@ -4,7 +4,7 @@
 
 <div class="baz2">
 	<div class="link-card">
-		<a href="/TVShows/tvwesterns/tvSeasonsHFord1923"><img {src} alt="" /></a>
+		<a href="/TVShows/tvwesterns/tvSeasonsHFord"><img {src} alt="" /></a>
 	</div>
 </div>
 
