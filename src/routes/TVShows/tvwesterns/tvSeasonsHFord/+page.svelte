@@ -1,37 +1,35 @@
 <script>
 	import { onMount } from 'svelte';
 	import BackArrow from '$lib/components/BackArrow.svelte';
-	
+
 	let data = [];
 	let data1 = [];
-	const wsuri = "ws://10.0.4.41:8765";
+	const wsuri = 'ws://10.0.4.41:8765';
 
 	function playtvshow(tvid) {
 		let ws = new WebSocket(wsuri);
-		
-		ws.onopen = function() {
-			
-			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
-			ws.send(JSON.stringify({"command": "play"}));
+
+		ws.onopen = function () {
+			ws.send(JSON.stringify({ command: 'set_tv_media', media_tv_id: tvid }));
+			ws.send(JSON.stringify({ command: 'play' }));
 		};
-		ws.onmessage = function(event) {
+		ws.onmessage = function (event) {
 			data = JSON.parse(event.data);
-			console.log("Message received from server: ", data);
+			console.log('Message received from server: ', data);
 		};
 	}
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
-		
-		ws1.onopen = function() {
-			
-			ws1.send(JSON.stringify({"command": "hford1923"}));
+
+		ws1.onopen = function () {
+			ws1.send(JSON.stringify({ 'command': 'hford1923' }));
 		};
-		ws1.onmessage = function(event) {
+		ws1.onmessage = function (event) {
 			data1 = JSON.parse(event.data);
-			console.log("Message received from server: ", data1);
+			console.log(data1);
+			console.log('Message received from server: ', data1);
 		};
-		
 	});
 </script>
 
