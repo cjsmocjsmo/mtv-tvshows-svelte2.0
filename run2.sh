@@ -1,27 +1,11 @@
 #!/bin/bash
 
-# Check if there are at least two arguments provided
-# if [ "$#" -ne 2 ]; then
-#     echo "You must enter exactly 2 arguments:\n\tarchitecture (32 or 64) and version (e.g., 0.0.1)"
-#     exit 1
-# fi
-
-# Check if the first argument is either 32 or 64
-# If not, print an error message and exit the script
-# if [ "$1" != "32" ] && [ "$1" != "64" ]; then
-#     echo "The first argument must be either 32 or 64"
-#     exit 1
-# fi
-
-# Check if the second argument is a valid version string
-# If not, print an error message and exit the script
 if ! echo "$1" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
     echo "The second argument must be a valid version string (e.g., 0.0.1)"
     exit 1
 fi
 
 echo "$1";
-# echo "$2";
 
 arch = uname -m;
 
