@@ -8,6 +8,7 @@
 	let datas2 = [];
 	let datas3 = [];
 	let datas4 = [];
+	let datas5 = [];
 
 	function playtvshow(tvid) {
 		let ws = new WebSocket(wsuri);
@@ -67,6 +68,10 @@
 			datas4 = JSON.parse(event.data);
 			console.log("Message received from server: ", datas4);
 		};
+		ws5.onmessage = function(event) {
+			datas5 = JSON.parse(event.data);
+			console.log("Message received from server: ", datas5);
+		};
 	});
 </script>
 
@@ -103,6 +108,14 @@
 		<h1>Season 4</h1>
 		<div class="seaList">
 			{#each datas4 as d}
+				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+			{/each}
+		</div>
+	</div>
+	<div>
+		<h1>Season 5</h1>
+		<div class="seaList">
+			{#each datas5 as d}
 				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
