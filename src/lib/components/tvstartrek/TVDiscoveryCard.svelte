@@ -1,5 +1,5 @@
 <script>
-	export let src;
+	let { src } = $props();
 </script>
 
 <div class="baz2">

@@ -1,9 +1,9 @@
 <script>
-    export let path;
+    let { path } = $props();
 </script>
 
 <div>
-    <a href={path}>
+    <a href={path} aria-label="Back">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="55"

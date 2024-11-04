@@ -1,5 +1,5 @@
 <script>
-	export let data;
+	let { data } = $props();
 
 	function playmovie(movid) {
 		const wsuri = "ws://10.0.4.41:8765";
@@ -18,10 +18,10 @@
 	{#each data as mov}
 		<div class="movlist">
 			<button 
-				on:click={playmovie(mov.MovId)}
-				on:keypress={playmovie(mov.MovId)}
-				on:keyup={playmovie(mov.MovId)}
-				on:keydown={playmovie(mov.MovId)} 
+				onclick={playmovie(mov.MovId)}
+				onkeypress={playmovie(mov.MovId)}
+				onkeyup={playmovie(mov.MovId)}
+				onkeydown={playmovie(mov.MovId)} 
 				aria-label={`Play movie: ${mov.Name}`} 
 			>
 				<img src={mov.HttpThumbPath} alt={mov.Name} />

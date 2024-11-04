@@ -18,10 +18,10 @@
 		};
 	}
 
-	let datas1 = [];
-	let datas2 = [];
-	let datas3 = [];
-	let datas4 = [];
+	let datas1 = $state([]);
+	let datas2 = $state([]);
+	let datas3 = $state([]);
+	let datas4 = $state([]);
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
@@ -80,7 +80,7 @@
 		<h1>Season 1</h1>
 		<div class="seaList">
 			{#each datas1 as d}
-				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
@@ -88,7 +88,7 @@
 		<h1>Season 2</h1>
 		<div class="seaList">
 			{#each datas2 as d}
-				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
@@ -96,7 +96,7 @@
 		<h1>Season 3</h1>
 		<div class="seaList">
 			{#each datas3 as d}
-				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
@@ -104,7 +104,7 @@
 		<h1>Season 4</h1>
 		<div class="seaList">
 			{#each datas4 as d}
-				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import BackArrow from '$lib/components/BackArrow.svelte';
 
-	let data = [];
+	let data = $state([]);
 	const wsuri = "ws://10.0.4.41:8765";
 
 	function playtvshow(tvid) {
@@ -37,7 +37,7 @@
 		<h1>Season 1</h1>
 		<div class="seaList">
 			{#each data as d}
-				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>

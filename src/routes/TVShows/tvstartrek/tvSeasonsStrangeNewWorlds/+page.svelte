@@ -3,8 +3,8 @@
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	
 	let data = [];
-	let data1 = [];
-	let data2 = [];
+	let data1 = $state([]);
+	let data2 = $state([]);
 
 	const wsuri = "ws://10.0.4.41:8765";
 
@@ -56,7 +56,7 @@
 		<h1>Season 1</h1>
 		<div class="seaList">
 			{#each data1 as d}
-				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
@@ -64,7 +64,7 @@
 		<h1>Season 2</h1>
 		<div class="seaList">
 			{#each data2 as d}
-				<button on:click={playtvshow(d.TvId)}>{d.Episode}</button>
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
 	</div>
