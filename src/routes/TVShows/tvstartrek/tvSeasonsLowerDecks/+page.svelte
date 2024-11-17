@@ -61,12 +61,17 @@
 		let ws4 = new WebSocket(wsuri);
 		
 		ws4.onopen = function() {
-			
 			ws4.send(JSON.stringify({"command": "lowerdeckss4"}));
 		};
 		ws4.onmessage = function(event) {
 			datas4 = JSON.parse(event.data);
 			console.log("Message received from server: ", datas4);
+		};
+
+		ws5 = new WebSocket(wsuri);
+
+		ws5.onopen = function() {
+			ws5.send(JSON.stringify({"command": "lowerdeckss5"}));
 		};
 		ws5.onmessage = function(event) {
 			datas5 = JSON.parse(event.data);
