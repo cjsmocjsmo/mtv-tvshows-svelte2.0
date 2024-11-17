@@ -68,7 +68,7 @@
 			console.log("Message received from server: ", datas4);
 		};
 
-		ws5 = new WebSocket(wsuri);
+		let ws5 = new WebSocket(wsuri);
 
 		ws5.onopen = function() {
 			ws5.send(JSON.stringify({"command": "lowerdeckss5"}));
