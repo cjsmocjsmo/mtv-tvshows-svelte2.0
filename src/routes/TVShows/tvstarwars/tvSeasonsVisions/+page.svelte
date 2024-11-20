@@ -17,7 +17,7 @@
 		};
 		ws.onmessage = function(event) {
 			data = JSON.parse(event.data);
-			console.log("Message received from server: ", data);
+			// console.log("Message received from server: ", data);
 		};
 	}
 
@@ -30,7 +30,7 @@
 		};
 		ws1.onmessage = function(event) {
 			data1 = JSON.parse(event.data);
-			console.log("Message received from server: ", data1);
+			// console.log("Message received from server: ", data1);
 		};
 
 		let ws2 = new WebSocket(wsuri);
@@ -41,7 +41,7 @@
 		};
 		ws2.onmessage = function(event) {
 			datas2 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas2);
+			// console.log("Message received from server: ", datas2);
 		};
 		
 	});

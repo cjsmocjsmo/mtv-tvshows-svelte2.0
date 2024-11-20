@@ -16,7 +16,7 @@
 		};
 		ws.onmessage = function(event) {
 			data = JSON.parse(event.data);
-			console.log("Message received from server: ", data);
+			// console.log("Message received from server: ", data);
 		};
 	}
 
@@ -29,7 +29,7 @@
 		};
 		ws1.onmessage = function(event) {
 			data1 = JSON.parse(event.data);
-			console.log("Message received from server: ", data1);
+			// console.log("Message received from server: ", data1);
 		};
 		
 	});

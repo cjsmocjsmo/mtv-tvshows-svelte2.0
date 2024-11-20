@@ -23,7 +23,7 @@
 		};
 		ws.onmessage = function(event) {
 			data = JSON.parse(event.data);
-			console.log("Message received from server: ", data);
+			// console.log("Message received from server: ", data);
 		};
 	}
 
@@ -36,7 +36,7 @@
 		};
 		ws1.onmessage = function(event) {
 			datas1 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas1);
+			// console.log("Message received from server: ", datas1);
 		};
 
 		let ws2 = new WebSocket(wsuri);
@@ -47,7 +47,7 @@
 		};
 		ws2.onmessage = function(event) {
 			datas2 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas2);
+			// console.log("Message received from server: ", datas2);
 		};
 
 		let ws3 = new WebSocket(wsuri);
@@ -58,7 +58,7 @@
 		};
 		ws3.onmessage = function(event) {
 			datas3 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas3);
+			// console.log("Message received from server: ", datas3);
 		};
 
 		let ws4 = new WebSocket(wsuri);
@@ -69,7 +69,7 @@
 		};
 		ws4.onmessage = function(event) {
 			datas4 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas4);
+			// console.log("Message received from server: ", datas4);
 		};
 
 		let ws5 = new WebSocket(wsuri);
@@ -80,7 +80,7 @@
 		};
 		ws5.onmessage = function(event) {
 			datas5 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas5);
+			// console.log("Message received from server: ", datas5);
 		};
 
 		let ws6 = new WebSocket(wsuri);
@@ -91,7 +91,7 @@
 		};
 		ws6.onmessage = function(event) {
 			datas6 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas6);
+			// console.log("Message received from server: ", datas6);
 		};
 
 		let ws7 = new WebSocket(wsuri);
@@ -102,7 +102,7 @@
 		};
 		ws7.onmessage = function(event) {
 			datas7 = JSON.parse(event.data);
-			console.log("Message received from server: ", datas7);
+			// console.log("Message received from server: ", datas7);
 		};
 	});
 </script>

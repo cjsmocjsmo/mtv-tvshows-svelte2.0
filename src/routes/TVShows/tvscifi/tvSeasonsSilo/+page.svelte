@@ -4,6 +4,7 @@
 	
 	let data = [];
 	let data1 = $state([]);
+	let data2 = $state([]);
 
 	const wsuri = "ws://10.0.4.41:8765";
 
@@ -17,7 +18,7 @@
 		};
 		ws.onmessage = function(event) {
 			data = JSON.parse(event.data);
-			console.log("Message received from server: ", data);
+			// console.log("Message received from server: ", data);
 		};
 	}
 
@@ -26,11 +27,22 @@
 		
 		ws1.onopen = function() {
 			
-			ws1.send(JSON.stringify({"command": "silo"}));
+			ws1.send(JSON.stringify({"command": "silo1"}));
 		};
 		ws1.onmessage = function(event) {
 			data1 = JSON.parse(event.data);
-			console.log("Message received from server: ", data1);
+			// console.log("Message received from server: ", data1);
+		};
+
+		let ws2 = new WebSocket(wsuri);
+		
+		ws2.onopen = function() {
+			
+			ws2.send(JSON.stringify({"command": "silo2"}));
+		};
+		ws2.onmessage = function(event) {
+			data2 = JSON.parse(event.data);
+			// console.log("Message received from server: ", data2);
 		};
 	});
 </script>
@@ -48,7 +60,14 @@
 			{/each}
 		</div>
 	</div>
-	
+	<div>
+		<h1>Season 2</h1>
+		<div class="seaList">
+			{#each data2 as d}
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
+			{/each}
+		</div>
+	</div>
 </main>
 
 <style>
