@@ -24,6 +24,9 @@
 
 	import AhsokaImg from '$lib/images/starwars/ahsoka.webp';
 	import TvAhsokaCard from '$lib/components/tvstarwars/TVAhsokaCard.svelte';
+
+	import SkeletonCrewImg from '$lib/images/starwars/skeletoncrew.jpg';
+	import TvSkeletonCrewCard from '$lib/components/tvstarwars/TVSkeletonCrewCard.svelte';
 </script>
 
 <div>
@@ -31,6 +34,7 @@
 	<h1>Star Wars</h1>
 	<div class="foo">
 		<div class="bar">
+			<TvSkeletonCrewCard src={SkeletonCrewImg} />
 			<TvAhsokaCard src={AhsokaImg} />
 			<TvAndorCard src={AndorImg} />
 			<TvBadBatchCard src={BadBatchImg} />
