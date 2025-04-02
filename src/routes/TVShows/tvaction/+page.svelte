@@ -4,6 +4,8 @@
 	import TheContinentalimg from '$lib/images/action/continental.webp';
     import Shogun from '$lib/components/action/TVShogunCard.svelte';
     import Shogunimg from '$lib/images/action/shogun.webp';
+	import MobLand from '$lib/components/action/MobLandCard.svelte';
+	import MobLandimg from '$lib/images/action/mobland.webp';
 
 </script>
 
@@ -13,6 +15,7 @@
 		<div class="bar">
 			<Shogun src={Shogunimg} />
             <TheContinental src={TheContinentalimg} />
+			<MobLand src={MobLandimg} />
 		</div>
 	</div>
 </div>
