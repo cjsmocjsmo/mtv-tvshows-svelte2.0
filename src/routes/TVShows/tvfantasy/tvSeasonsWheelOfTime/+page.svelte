@@ -17,21 +17,31 @@
 
 	let datas1 = $state([]);
 	let datas2 = $state([]);
+	let datas3 = $state([]);
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
 		ws1.onopen = function() {
-			ws1.send(JSON.stringify({"command": "wheeloftimes1"}));
+			ws1.send(JSON.stringify({"command": "wheeloftime1"}));
 		};
 		ws1.onmessage = function(event) {
 			datas1 = JSON.parse(event.data);
 		};
+
 		let ws2 = new WebSocket(wsuri);
 		ws2.onopen = function() {
-			ws2.send(JSON.stringify({"command": "wheeloftimes2"}));
+			ws2.send(JSON.stringify({"command": "wheeloftime2"}));
 		};
 		ws2.onmessage = function(event) {
 			datas2 = JSON.parse(event.data);
+		};
+
+		let ws3 = new WebSocket(wsuri);
+		ws3.onopen = function() {
+			ws3.send(JSON.stringify({"command": "wheeloftime3"}));
+		};
+		ws3.onmessage = function(event) {
+			datas3 = JSON.parse(event.data);
 		};
 	});
 </script>

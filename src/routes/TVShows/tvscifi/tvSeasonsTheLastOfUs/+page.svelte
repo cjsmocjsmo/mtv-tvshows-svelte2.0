@@ -18,7 +18,7 @@
 		};
 		ws.onmessage = function(event) {
 			data = JSON.parse(event.data);
-			// console.log("Message received from server: ", data);
+			console.log("Message received from server: ", data);
 		};
 	}
 
@@ -57,8 +57,7 @@
 				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
-	</div>
-	<div>
+	
 		<h1>Season 2</h1>
 		<div class="seaList">
 			{#each data as d}

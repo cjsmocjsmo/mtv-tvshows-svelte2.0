@@ -17,6 +17,7 @@
 
 	let datas1 = $state([]);
 	let datas2 = $state([]);
+	let datas3 = $state([]);
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
@@ -26,6 +27,7 @@
 		ws1.onmessage = function(event) {
 			datas1 = JSON.parse(event.data);
 		};
+
 		let ws2 = new WebSocket(wsuri);
 		ws2.onopen = function() {
 			ws2.send(JSON.stringify({"command": "houseofthedragons2"}));
@@ -55,9 +57,7 @@
 				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
-
 	</div>
-	
 </main>
 
 <style>
