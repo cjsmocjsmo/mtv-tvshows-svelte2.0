@@ -9,7 +9,11 @@
 	let { children } = $props();
 
 	let prev = () => {
-		console.log("this feature is not implemented yet")
+		let ws12 = new WebSocket(wsuri);
+		ws12.onopen = function () {
+			ws12.send(JSON.stringify({ 'command': 'previous' }));
+		};
+		console.log("previous button clicked");
 	}
 
 	let play = () => {
@@ -40,7 +44,12 @@
 	}
 
 	let next = () => {
-		console.log("this feature is not implemented yet")
+		const nextcmd = JSON.stringify({ 'command': 'next' });
+		let ws1 = new WebSocket(wsuri);
+		ws1.onopen = function () {
+			ws1.send(nextcmd);
+		};
+		console.log("next button clicked");
 	}
 </script>
 
