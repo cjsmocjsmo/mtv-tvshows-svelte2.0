@@ -17,7 +17,6 @@
 
 	let datas1 = $state([]);
 	let datas2 = $state([]);
-	let datas3 = $state([]);
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
@@ -50,7 +49,6 @@
 				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
-		
 		<h1>Season 2</h1>
 		<div class="seaList">
 			{#each datas2 as d}

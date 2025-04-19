@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	
-	// let data = [];
+	let data = [];
 	let data1 = $state([]);
 	let data2 = $state([]);
 
@@ -31,7 +31,7 @@
 		};
 		ws1.onmessage = function(event) {
 			data1 = JSON.parse(event.data);
-			// console.log("Message received from server: ", data1);
+			console.log("Message received from server: ", data1);
 		};
 
 		let ws2 = new WebSocket(wsuri);
@@ -40,7 +40,7 @@
 		};
 		ws2.onmessage = function(event) {
 			data2 = JSON.parse(event.data);
-			// console.log("Message received from server: ", data);
+			console.log("Message received from server: ", data2);
 		};
 	});
 </script>
@@ -60,8 +60,8 @@
 	
 		<h1>Season 2</h1>
 		<div class="seaList">
-			{#each data as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
+			{#each data2 as d2}
+				<button onclick={playtvshow(d2.TvId)}>{d2.Episode}</button>
 			{/each}
 		</div>
 	</div>

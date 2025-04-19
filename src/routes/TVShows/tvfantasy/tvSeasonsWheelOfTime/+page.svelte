@@ -58,16 +58,19 @@
 				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 			{/each}
 		</div>
-	</div>
-	<div>
 		<h1>Season 2</h1>
 		<div class="seaList">
-			{#each datas2 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
+			{#each datas2 as d2}
+				<button onclick={playtvshow(d2.TvId)}>{d2.Episode}</button>
+			{/each}
+		</div>
+		<h1>Season 3</h1>
+		<div class="seaList">
+			{#each datas3 as d3}
+				<button onclick={playtvshow(d3.TvId)}>{d3.Episode}</button>
 			{/each}
 		</div>
 	</div>
-	
 </main>
 
 <style>
