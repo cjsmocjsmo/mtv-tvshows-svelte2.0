@@ -9,9 +9,9 @@
 </div>
 
 <style>
-	/* .baz2 {
+	.baz2 {
 		width: 210px;
-	} */
+	}
 	img {
 		width: 200px;
 		height: 300px;
