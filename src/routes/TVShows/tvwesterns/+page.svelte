@@ -9,7 +9,6 @@
 	<div class="foo">
 		<div class="bar">
 			<TvhFord1923Card src={"http://10.0.4.41:9998/1923.jpg"} />
-
 		</div>
 	</div>
 </div>
