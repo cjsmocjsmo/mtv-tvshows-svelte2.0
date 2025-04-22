@@ -10,7 +10,7 @@
 	<h1>Western</h1>
 	<div class="foo">
 		<div class="bar">
-			<TvhFord1923Card src={HFord1923Img} />
+			<TvhFord1923Card src={"http://10.0.4.41:9998/1923.jpg"} />
 
 		</div>
 	</div>
