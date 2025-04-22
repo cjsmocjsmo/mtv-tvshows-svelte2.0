@@ -1,14 +1,13 @@
 <script>
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TvPreHistoricPlanetCard from '$lib/components/science/TVPreHistoricPlanetCard.svelte';
-	import PrehistoricImg from '$lib/images/science/prehistoricplanet.avif';
 </script>
 
 <div>
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
-			<TvPreHistoricPlanetCard src={PrehistoricImg} />
+			<TvPreHistoricPlanetCard src={"http://10.0.4.41:9998/prehistoricplanet.jpg"} />
 		</div>
 	</div>
 </div>

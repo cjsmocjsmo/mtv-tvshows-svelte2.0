@@ -1,11 +1,8 @@
 <script>
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TheContinental from '$lib/components/action/TVTheContinentalCard.svelte';
-	import TheContinentalimg from '$lib/images/action/continental.webp';
     import Shogun from '$lib/components/action/TVShogunCard.svelte';
-    import Shogunimg from '$lib/images/action/shogun.webp';
 	import MobLand from '$lib/components/action/TVMobLandCard.svelte';
-	import MobLandimg from '$lib/images/action/mobland.webp';
 
 </script>
 
@@ -13,9 +10,9 @@
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
-			<Shogun src={Shogunimg} />
-            <TheContinental src={TheContinentalimg} />
-			<MobLand src={MobLandimg} />
+			<Shogun src={"http://10.0.4.41:9998/shogun.jpg"} />
+            <TheContinental src={"http://10.0.4.41:9998/continental.jpg"} />
+			<MobLand src={"http://10.0.4.41:9998/mobland.jpg"} />
 		</div>
 	</div>
 </div>

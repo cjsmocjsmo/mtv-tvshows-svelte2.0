@@ -1,23 +1,14 @@
 <script>
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TvVoyagerCard from '$lib/components/tvstartrek/TVVoyagerCard.svelte';
-	import VoyagerImg from '$lib/images/startrek/voyager.avif';
 	import TvSTTVCard from '$lib/components/tvstartrek/TVSTTVCard.svelte';
-	import STTVImg from '$lib/images/startrek/sttv.avif';
 	import TvEnterpriseCard from '$lib/components/tvstartrek/TVEnterpriseCard.svelte';
-	import EnterpriseImg from '$lib/images/startrek/enterprise.avif';
 	import TvNextGenerationCard from '$lib/components/tvstartrek/TVNextGenerationCard.svelte';
-	import NextGenerationImg from '$lib/images/startrek/nextgen.avif';
 	import TvDiscoveryCard from '$lib/components/tvstartrek/TVDiscoveryCard.svelte';
-	import DiscoveryImg from '$lib/images/startrek/discovery.avif';
 	import TvPicardCard from '$lib/components/tvstartrek/TVPicardCard.svelte';
-	import PicardImg from '$lib/images/startrek/picard.avif';
 	import TvLowerDecksCard from '$lib/components/tvstartrek/TVLowerDecksCard.svelte';
-	import LowerDecksImg from '$lib/images/startrek/lowerdecks.avif';
 	import TvProdigyCard from '$lib/components/tvstartrek/TVProdigyCard.svelte';
-	import ProdigyImg from '$lib/images/startrek/prodigy.avif';
 	import TvStrangeNewWorldsCard from '$lib/components/tvstartrek/TVStrangeNewWorldsCard.svelte';
-	import StrangeNewWorldsImg from '$lib/images/startrek/strangenewworlds.avif';
 </script>
 
 <div>
@@ -25,15 +16,15 @@
 	<h1>Star Trek</h1>
 	<div class="foo">
 		<div class="bar">
-			<TvVoyagerCard src={VoyagerImg} />
-			<TvSTTVCard src={STTVImg} />
-			<TvEnterpriseCard src={EnterpriseImg} />
-			<TvNextGenerationCard src={NextGenerationImg} />
-			<TvDiscoveryCard src={DiscoveryImg} />
-			<TvPicardCard src={PicardImg} />
-			<TvLowerDecksCard src={LowerDecksImg} />
-			<TvProdigyCard src={ProdigyImg} />
-			<TvStrangeNewWorldsCard src={StrangeNewWorldsImg} />
+			<TvVoyagerCard src={"http://10.0.4.41:9998/voyager.jpg"} />
+			<TvSTTVCard src={"http://10.0.4.41:9998/sttv.jpg"} />
+			<TvEnterpriseCard src={"http://10.0.4.41:9998/enterprise.jpg"} />
+			<TvNextGenerationCard src={"http://10.0.4.41:9998/nextgen.jpg"} />
+			<TvDiscoveryCard src={"http://10.0.4.41:9998/discovery.jpg"} />
+			<TvPicardCard src={"http://10.0.4.41:9998/picard.jpg"} />
+			<TvLowerDecksCard src={"http://10.0.4.41:9998/lowerdecks.jpg"} />
+			<TvProdigyCard src={"http://10.0.4.41:9998/prodigy.jpg"} />
+			<TvStrangeNewWorldsCard src={"http://10.0.4.41:9998/strangenewworlds.jpg"} />
 		</div>
 	</div>
 </div>

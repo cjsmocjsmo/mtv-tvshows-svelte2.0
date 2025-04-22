@@ -1,20 +1,17 @@
 <script>
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TvHouseOfTheDragonCard from '$lib/components/fantasy/TVHouseOfTheDragonCard.svelte';
-	import HouseOfTheDragon from '$lib/images/fantasy/houseofthedragon.avif';
 	import RingsOfPowerCard from '$lib/components/fantasy/TVRingsOfPowerCard.svelte';
-	import RingsOfPower from '$lib/images/fantasy/thelordoftheringsringsofpower.avif';
 	import TvWheelOfTimeCard from '$lib/components/fantasy/TVWheelOfTimeCard.svelte';
-	import WheelOfTime from '$lib/images/fantasy/wheeloftime.avif';
 </script>
 
 <div>
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
-			<TvHouseOfTheDragonCard src={HouseOfTheDragon} />
-			<RingsOfPowerCard src={RingsOfPower} />
-			<TvWheelOfTimeCard src={WheelOfTime} />
+			<TvHouseOfTheDragonCard src={"http://10.0.4.41:9998/houseofthedragon.jpg"} />
+			<RingsOfPowerCard src={"http://10.0.4.41:9998/thelordoftheringsringsofpower.jpg"} />
+			<TvWheelOfTimeCard src={"http://10.0.4.41:9998/wheeloftime.jpg"} />
 		</div>
 	</div>
 </div>

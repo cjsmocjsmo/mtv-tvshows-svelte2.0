@@ -1,14 +1,13 @@
 <script>
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TvFuuBarCard from '$lib/components/comedy/TVFuuBarCard.svelte';
-	import FUUBar from '$lib/images/comedy/fubar.webp';
 </script>
 
 <div>
 	<BackArrow path="/" />
 	<div class="foo">
 			<ul class="bar">
-				<TvFuuBarCard src={FUUBar} />
+				<TvFuuBarCard src={"http://10.0.4.41:9998/fubar.jpg"} />
 			</ul>
 	</div>
 </div>

@@ -34,15 +34,15 @@
 	<h1>Star Wars</h1>
 	<div class="foo">
 		<div class="bar">
-			<TvSkeletonCrewCard src={SkeletonCrewImg} />
-			<TvAhsokaCard src={AhsokaImg} />
-			<TvAndorCard src={AndorImg} />
-			<TvBadBatchCard src={BadBatchImg} />
-			<TvBobbaFettCard src={BobbaFettImg} />
-			<TvMandalorianCard src={MandalorianImg} />
-			<TvTalesOfTheJediCard src={TalesOfTheJediImg} />
-			<TvObiWanCard src={ObiWanImg} />
-			<TvVisionsCard src={VisionsImg} />
+			<TvSkeletonCrewCard src={"http://10.0.4.41:9998/skeletoncrew.jpg"} />
+			<TvAhsokaCard src={"http://10.0.4.41:9998/ahsoka.jpg"} />
+			<TvAndorCard src={"http://10.0.4.41:9998/andor.jpg"} />
+			<TvBadBatchCard src={"http://10.0.4.41:9998/badbatch.jpg"} />
+			<TvBobbaFettCard src={"http://10.0.4.41:9998/bobafett.jpg"} />
+			<TvMandalorianCard src={"http://10.0.4.41:9998/mandalorian.jpg"} />
+			<TvTalesOfTheJediCard src={"http://10.0.4.41:9998/talesofthejedi.jpg"} />
+			<TvObiWanCard src={"http://10.0.4.41:9998/obiwan.jpg"} />
+			<TvVisionsCard src={"http://10.0.4.41:9998/visions.jpg"} />
 		</div>
 	</div>
 </div>

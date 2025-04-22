@@ -1,35 +1,27 @@
 <script>
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TvIAmGrootCard from '$lib/components/tvmcu/TVIAmGrootCard.svelte';
-	import IAmGroot from '$lib/images/mcu/iamgroot.avif';
 	import TvFalconWinterSoldierCard from '$lib/components/tvmcu/TVFalconWinterSoldierCard.svelte';
-	import FalconWinterSoldier from '$lib/images/mcu/falconwintersoldier.avif';
 	import TvLokiCard from '$lib/components/tvmcu/TVLokiCard.svelte';
-	import Loki from '$lib/images/mcu/loki.avif';
 	import TvHawkeyeCard from '$lib/components/tvmcu/TVHawkeyeCard.svelte';
-	import Hawkeye from '$lib/images/mcu/Hawkeye.avif';
 	import MoonKnightCard from '$lib/components/tvmcu/TVMoonKnightCard.svelte';
-	import MoonKnight from '$lib/images/mcu/moonknight.avif';
 	import SheHulkCard from '$lib/components/tvmcu/TVSheHulkCard.svelte';
-	import SheHulk from '$lib/images/mcu/shehulk.avif';
 	import WandavisionCard from '$lib/components/tvmcu/TVWandavisionCard.svelte';
-	import Wandavision from '$lib/images/mcu/wandavision.avif';
 	import SecretInvasionCard from '$lib/components/tvmcu/TVSecretInvasionCard.svelte';
-	import SecretInvasionImg from '$lib/images/mcu/secret_invasion.avif';
 </script>
 
 <div>
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
-			<SecretInvasionCard src={SecretInvasionImg} />
-			<TvIAmGrootCard src={IAmGroot} />
-			<TvLokiCard src={Loki} />
-			<MoonKnightCard src={MoonKnight} />
-			<SheHulkCard src={SheHulk} />
-			<TvHawkeyeCard src={Hawkeye} />
-			<TvFalconWinterSoldierCard src={FalconWinterSoldier} />
-			<WandavisionCard src={Wandavision} />
+			<SecretInvasionCard src={"http://10.0.4.41:9998/secret_invasion.jpg"} />
+			<TvIAmGrootCard src={"http://10.0.4.41:9998/iamgroot.jpg"} />
+			<TvLokiCard src={"http://10.0.4.41:9998/loki.jpg"} />
+			<MoonKnightCard src={"http://10.0.4.41:9998/moonknight.jpg"} />
+			<SheHulkCard src={"http://10.0.4.41:9998/shehulk.jpg"} />
+			<TvHawkeyeCard src={"http://10.0.4.41:9998/hawkeye.jpg"} />
+			<TvFalconWinterSoldierCard src={"http://10.0.4.41:9998/falconwintersoldier.jpg"} />
+			<WandavisionCard src={"http://10.0.4.41:9998/wandavision.jpg"} />
 		</div>
 	</div>
 </div>
