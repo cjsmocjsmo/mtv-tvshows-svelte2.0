@@ -29,14 +29,14 @@
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
-	@media (min-width: 700px) {
+	@media (min-width: 600px) {
 		.bar {
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
-	@media (min-width: 900px) {
+	@media (min-width: 700px) {
 		.bar {
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 </style>

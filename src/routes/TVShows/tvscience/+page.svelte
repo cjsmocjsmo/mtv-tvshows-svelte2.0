@@ -14,25 +14,10 @@
 
 <style>
 	.bar {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		grid-gap: 1rem;
-		margin-left: 2em;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
 	}
-
-	@media (min-width: 500px) {
-		.bar {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-	/* @media (min-width: 700px) {
-		.bar {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-	@media (min-width: 900px) {
-		.bar {
-			grid-template-columns: repeat(4, 1fr);
-		}
-	} */
 </style>
