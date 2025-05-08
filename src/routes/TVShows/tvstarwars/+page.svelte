@@ -10,6 +10,7 @@
 	import TvAhsokaCard from '$lib/components/tvstarwars/TVAhsokaCard.svelte';
 	import TvSkeletonCrewCard from '$lib/components/tvstarwars/TVSkeletonCrewCard.svelte';
 	import TvTalesOfTheEmpireCard from '$lib/components/tvstarwars/TVTalesOfTheEmpireCard.svelte';
+	import TvTalesOfTheUnderwroldCard from '$lib/components/tvstarwars/TVTalesOfTheUnderworldCard.svelte';
 </script>
 
 <div>
@@ -25,6 +26,7 @@
 			<TvMandalorianCard src={"http://10.0.4.41:9998/mandalorian.jpg"} />
 			<TvTalesOfTheEmpireCard src={"http://10.0.4.41:9998/talesoftheempire.jpg"} />
 			<TvTalesOfTheJediCard src={"http://10.0.4.41:9998/talesofthejedi.jpg"} />
+			<TvTalesOfTheUnderwroldCard src={"http://10.0.4.41:9998/talesoftheunderworld.jpg"} />
 			<TvObiWanCard src={"http://10.0.4.41:9998/obiwan.jpg"} />
 			<TvVisionsCard src={"http://10.0.4.41:9998/visions.jpg"} />
 		</div>
