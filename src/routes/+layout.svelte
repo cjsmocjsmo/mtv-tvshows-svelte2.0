@@ -19,35 +19,35 @@
 	let play = () => {
 		const wsuri = 'ws://10.0.4.41:8765';
 		const playcmd = JSON.stringify({ 'command': 'play' });
-		let ws1 = new WebSocket(wsuri);
-		ws1.onopen = function () {
-			ws1.send(playcmd);
+		let ws13 = new WebSocket(wsuri);
+		ws13.onopen = function () {
+			ws13.send(playcmd);
 		};
 	}
 
 	let pause = () => {
 		const wsuri = 'ws://10.0.4.41:8765';
 		const pausecmd = JSON.stringify({ 'command': 'pause' });
-		let ws1 = new WebSocket(wsuri);
-		ws1.onopen = function () {
-			ws1.send(pausecmd);
+		let ws14 = new WebSocket(wsuri);
+		ws14.onopen = function () {
+			ws14.send(pausecmd);
 		};
 	}
 
 	let stop = () => {
 		const wsuri = 'ws://10.0.4.41:8765';
 		const stopcmd = JSON.stringify({ 'command': 'stop' });
-		let ws1 = new WebSocket(wsuri);
-		ws1.onopen = function () {
-			ws1.send(stopcmd);
+		let ws15 = new WebSocket(wsuri);
+		ws15.onopen = function () {
+			ws15.send(stopcmd);
 		};
 	}
 
 	let next = () => {
 		const nextcmd = JSON.stringify({ 'command': 'next' });
-		let ws1 = new WebSocket(wsuri);
-		ws1.onopen = function () {
-			ws1.send(nextcmd);
+		let ws16 = new WebSocket(wsuri);
+		ws16.onopen = function () {
+			ws16.send(nextcmd);
 		};
 		console.log("next button clicked");
 	}
