@@ -7,17 +7,18 @@
 
 	/** @type {Props} */
 	let { children } = $props();
+	const wsuri = 'ws://10.0.4.41:8765';
 
 	let prev = () => {
+		const prevcmd = JSON.stringify({ 'command': 'previous' });
 		let ws12 = new WebSocket(wsuri);
 		ws12.onopen = function () {
-			ws12.send(JSON.stringify({ 'command': 'previous' }));
+			ws12.send(prevcmd);
 		};
 		console.log("previous button clicked");
 	}
 
 	let play = () => {
-		const wsuri = 'ws://10.0.4.41:8765';
 		const playcmd = JSON.stringify({ 'command': 'play' });
 		let ws13 = new WebSocket(wsuri);
 		ws13.onopen = function () {
@@ -26,7 +27,6 @@
 	}
 
 	let pause = () => {
-		const wsuri = 'ws://10.0.4.41:8765';
 		const pausecmd = JSON.stringify({ 'command': 'pause' });
 		let ws14 = new WebSocket(wsuri);
 		ws14.onopen = function () {
@@ -35,7 +35,6 @@
 	}
 
 	let stop = () => {
-		const wsuri = 'ws://10.0.4.41:8765';
 		const stopcmd = JSON.stringify({ 'command': 'stop' });
 		let ws15 = new WebSocket(wsuri);
 		ws15.onopen = function () {
