@@ -17,12 +17,22 @@
 	}
 
 	onMount(async () => {
+		let datas1 = "";
+		let datas2 = "";
 		let ws1 = new WebSocket(wsuri);
 		ws1.onopen = function() {
-			ws1.send(JSON.stringify({"command": "fuubar"}));
+			ws1.send(JSON.stringify({"command": "fuubar1"}));
 		};
 		ws1.onmessage = function(event) {
-			data = JSON.parse(event.data);
+			datas1 = JSON.parse(event.data);
+		};
+
+		let ws2 = new WebSocket(wsuri);
+		ws2.onopen = function() {
+			ws2.send(JSON.stringify({"command": "fuubar2"}));
+		};
+		ws2.onmessage = function(event) {
+			datas2 = JSON.parse(event.data);
 		};
 		
 	});
@@ -36,11 +46,18 @@
 	<div>
 		<h1>Season 1</h1>
 		<div class="seaList">
-			{#each data as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
+			{#each datas1 as d1}
+				<button onclick={playtvshow(d1.TvId)}>{d1.Episode}</button>
 			{/each}
 		</div>
 	</div>
+	<div>
+		<h1>Season 2</h1>
+		<div class="seaList">
+			{#each datas2 as d2}
+				<button onclick={playtvshow(d2.TvId)}>{d2.Episode}</button>
+			{/each}
+		</div>
 </main>
 
 <style>
