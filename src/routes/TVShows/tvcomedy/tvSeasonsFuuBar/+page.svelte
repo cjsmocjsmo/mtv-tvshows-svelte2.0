@@ -16,9 +16,11 @@
 		};
 	}
 
+	let datas1 = $state([]);
+	let datas2 = $state([]);
+
 	onMount(async () => {
-		let datas1 = $state([]);
-		let datas2 = $state([]);
+		
 		let ws1 = new WebSocket(wsuri);
 		ws1.onopen = function() {
 			ws1.send(JSON.stringify({"command": "fuubar1"}));
