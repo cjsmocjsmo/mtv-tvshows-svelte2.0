@@ -51,14 +51,14 @@
 	<div>
 		<h1>Season 1</h1>
 		<div class="seaList">
-			{#each data1 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
+			{#each data1 as d1}
+				<button onclick={playtvshow(d1.TvId)}>{d1.Episode}</button>
 			{/each}
 		</div>
 		<h1>Season 2</h1>
 		<div class="seaList">
-			{#each data2 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
+			{#each data2 as d2}
+				<button onclick={playtvshow(d2.TvId)}>{d2.Episode}</button>
 			{/each}
 		</div>
 	</div>
