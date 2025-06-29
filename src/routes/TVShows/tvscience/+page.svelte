@@ -8,7 +8,7 @@
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
-			<TvColumbiaCard src={"http://10.0.4.41:9998/columbian.jpg"} />
+			<TvColumbiaCard src={"http://10.0.4.41:9998/columbia.jpg"} />
 			<TvPreHistoricPlanetCard src={"http://10.0.4.41:9998/prehistoricplanet.jpg"} />
 		</div>
 	</div>
@@ -16,10 +16,24 @@
 
 <style>
 	.bar {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 1rem;
+	}
+
+	@media (min-width: 500px) {
+		.bar {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 700px) {
+		.bar {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	@media (min-width: 900px) {
+		.bar {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 </style>
