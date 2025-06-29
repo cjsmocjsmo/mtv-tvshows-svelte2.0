@@ -1,12 +1,14 @@
 <script>
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TvPreHistoricPlanetCard from '$lib/components/science/TVPreHistoricPlanetCard.svelte';
+	import TvColumbiaCard from '$lib/components/science/TVColumbiaCard.svelte';
 </script>
 
 <div>
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
+			<TvColumbiaCard src={"http://10.0.4.41:9998/columbian.jpg"} />
 			<TvPreHistoricPlanetCard src={"http://10.0.4.41:9998/prehistoricplanet.jpg"} />
 		</div>
 	</div>
