@@ -20,6 +20,7 @@
 
 	let datas1 = $state([]);
 	let datas2 = $state([]);
+	let datas3 = $state([]);
 
 	onMount(async () => {
 		let ws1 = new WebSocket(wsuri);
@@ -41,6 +42,15 @@
 		ws2.onmessage = function(event) {
 			datas2 = JSON.parse(event.data);
 			// console.log("Message received from server: ", datas2);
+		};
+
+		let ws3 = new WebSocket(wsuri);
+		ws3.onopen = function() {
+			ws3.send(JSON.stringify({"command": "foundations3"}));
+		};
+		ws3.onmessage = function(event) {
+			datas3 = JSON.parse(event.data);
+			// console.log("Message received from server: ", datas3);
 		};
 	});
 </script>
@@ -66,7 +76,14 @@
 			{/each}
 		</div>
 	</div>
-	
+	<div>
+		<h1>Season 3</h1>
+		<div class="seaList">
+			{#each datas3 as d}
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
+			{/each}
+		</div>
+	</div>
 </main>
 
 <style>

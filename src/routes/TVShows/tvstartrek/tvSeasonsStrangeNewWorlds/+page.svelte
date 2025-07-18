@@ -5,6 +5,7 @@
 	let data = [];
 	let data1 = $state([]);
 	let data2 = $state([]);
+	let data3 = $state([]);
 
 	const wsuri = "ws://10.0.4.41:8765";
 
@@ -44,6 +45,16 @@
 			data2 = JSON.parse(event.data);
 			// console.log("Message received from server: ", data2);
 		};
+
+		let ws3 = new WebSocket(wsuri);
+
+		ws3.onopen = function() {
+			ws3.send(JSON.stringify({"command": "strangenewworldss3"}));
+		};
+		ws3.onmessage = function(event) {
+			data3 = JSON.parse(event.data);
+			// console.log("Message received from server: ", data3);
+		};
 	});
 </script>
 
@@ -68,7 +79,14 @@
 			{/each}
 		</div>
 	</div>
-	
+	<div>
+		<h1>Season 3</h1>
+		<div class="seaList">
+			{#each data3 as d}
+				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
+			{/each}
+		</div>
+	</div>
 </main>
 
 <style>
