@@ -1,8 +1,9 @@
 <script>
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TvHouseOfTheDragonCard from '$lib/components/fantasy/TVHouseOfTheDragonCard.svelte';
-	import RingsOfPowerCard from '$lib/components/fantasy/TVRingsOfPowerCard.svelte';
+	import TvRingsOfPowerCard from '$lib/components/fantasy/TVRingsOfPowerCard.svelte';
 	import TvWheelOfTimeCard from '$lib/components/fantasy/TVWheelOfTimeCard.svelte';
+	import TvWednesdayCard from '$lib/components/fantasy/TVWednesdayCard.svelte';
 </script>
 
 <div>
@@ -10,8 +11,9 @@
 	<div class="foo">
 		<div class="bar">
 			<TvHouseOfTheDragonCard src={"http://10.0.4.41:9998/houseofthedragon.jpg"} />
-			<RingsOfPowerCard src={"http://10.0.4.41:9998/thelordoftheringsringsofpower.jpg"} />
+			<TvRingsOfPowerCard src={"http://10.0.4.41:9998/thelordoftheringsringsofpower.jpg"} />
 			<TvWheelOfTimeCard src={"http://10.0.4.41:9998/wheeloftime.jpg"} />
+			<TvWednesdayCard src={"http://10.0.4:9998/Wednesday.jpg"} />
 		</div>
 	</div>
 </div>
