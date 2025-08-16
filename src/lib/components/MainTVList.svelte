@@ -1,15 +1,12 @@
 <script>
+	import { TV_CATEGORIES } from '$lib/constants.js';
 </script>
 <div class="movlist">
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvaction"><p class="mov">Action</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvcomedy"><p class="mov">Comedy</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvfantasy"><p class="mov">Fantasy</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvmcu"><p class="mov">MCU</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvscience"><p class="mov">Science</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvscifi"><p class="mov">SciFi</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvstartrek"><p class="mov">Star Trek</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvstarwars"><p class="mov">Star Wars</p></a>
-	<a data-sveltekit-preload-data="tap" href="TVShows/tvwesterns"><p class="mov">Westerns</p></a>
+	{#each TV_CATEGORIES as category}
+		<a data-sveltekit-preload-data="tap" href={category.path}>
+			<p class="mov">{category.name}</p>
+		</a>
+	{/each}
 </div>
 
 <style>

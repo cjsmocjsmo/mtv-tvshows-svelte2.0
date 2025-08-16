@@ -1,5 +1,6 @@
 <script>
 	import './styles.css';
+	import { sendCommand } from '$lib/stores/websocket.js';
 	/**
 	 * @typedef {Object} Props
 	 * @property {import('svelte').Snippet} [children]
@@ -7,47 +8,26 @@
 
 	/** @type {Props} */
 	let { children } = $props();
-	const wsuri = 'ws://10.0.4.41:8765';
 
 	let prev = () => {
-		const prevcmd = JSON.stringify({ 'command': 'previous' });
-		let ws12 = new WebSocket(wsuri);
-		ws12.onopen = function () {
-			ws12.send(prevcmd);
-		};
+		sendCommand('previous');
 		console.log("previous button clicked");
 	}
 
 	let play = () => {
-		const playcmd = JSON.stringify({ 'command': 'play' });
-		let ws13 = new WebSocket(wsuri);
-		ws13.onopen = function () {
-			ws13.send(playcmd);
-		};
+		sendCommand('play');
 	}
 
 	let pause = () => {
-		const pausecmd = JSON.stringify({ 'command': 'pause' });
-		let ws14 = new WebSocket(wsuri);
-		ws14.onopen = function () {
-			ws14.send(pausecmd);
-		};
+		sendCommand('pause');
 	}
 
 	let stop = () => {
-		const stopcmd = JSON.stringify({ 'command': 'stop' });
-		let ws15 = new WebSocket(wsuri);
-		ws15.onopen = function () {
-			ws15.send(stopcmd);
-		};
+		sendCommand('stop');
 	}
 
 	let next = () => {
-		const nextcmd = JSON.stringify({ 'command': 'next' });
-		let ws16 = new WebSocket(wsuri);
-		ws16.onopen = function () {
-			ws16.send(nextcmd);
-		};
+		sendCommand('next');
 		console.log("next button clicked");
 	}
 </script>

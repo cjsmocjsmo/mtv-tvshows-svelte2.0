@@ -9,6 +9,7 @@
 	import TvLowerDecksCard from '$lib/components/tvstartrek/TVLowerDecksCard.svelte';
 	import TvProdigyCard from '$lib/components/tvstartrek/TVProdigyCard.svelte';
 	import TvStrangeNewWorldsCard from '$lib/components/tvstartrek/TVStrangeNewWorldsCard.svelte';
+	import { getImageUrl } from '$lib/config.js';
 </script>
 
 <div>
@@ -16,15 +17,15 @@
 	<h1>Star Trek</h1>
 	<div class="foo">
 		<div class="bar">
-			<TvVoyagerCard src={"http://10.0.4.41:9998/voyager.jpg"} />
-			<TvSTTVCard src={"http://10.0.4.41:9998/sttv.jpg"} />
-			<TvEnterpriseCard src={"http://10.0.4.41:9998/enterprise.jpg"} />
-			<TvNextGenerationCard src={"http://10.0.4.41:9998/nextgen.jpg"} />
-			<TvDiscoveryCard src={"http://10.0.4.41:9998/discovery.jpg"} />
-			<TvPicardCard src={"http://10.0.4.41:9998/picard.jpg"} />
-			<TvLowerDecksCard src={"http://10.0.4.41:9998/lowerdecks.jpg"} />
-			<TvProdigyCard src={"http://10.0.4.41:9998/prodigy.jpg"} />
-			<TvStrangeNewWorldsCard src={"http://10.0.4.41:9998/strangenewworlds.jpg"} />
+			<TvVoyagerCard src={getImageUrl("/voyager.jpg")} />
+			<TvSTTVCard src={getImageUrl("/sttv.jpg")} />
+			<TvEnterpriseCard src={getImageUrl("/enterprise.jpg")} />
+			<TvNextGenerationCard src={getImageUrl("/nextgen.jpg")} />
+			<TvDiscoveryCard src={getImageUrl("/discovery.jpg")} />
+			<TvPicardCard src={getImageUrl("/picard.jpg")} />
+			<TvLowerDecksCard src={getImageUrl("/lowerdecks.jpg")} />
+			<TvProdigyCard src={getImageUrl("/prodigy.jpg")} />
+			<TvStrangeNewWorldsCard src={getImageUrl("/strangenewworlds.jpg")} />
 		</div>
 	</div>
 </div>

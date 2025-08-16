@@ -4,16 +4,17 @@
 	import TvRingsOfPowerCard from '$lib/components/fantasy/TVRingsOfPowerCard.svelte';
 	import TvWheelOfTimeCard from '$lib/components/fantasy/TVWheelOfTimeCard.svelte';
 	import TvWednesdayCard from '$lib/components/fantasy/TVWednesdayCard.svelte';
+	import { getImageUrl } from '$lib/config.js';
 </script>
 
 <div>
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
-			<TvHouseOfTheDragonCard src={"http://10.0.4.41:9998/houseofthedragon.jpg"} />
-			<TvRingsOfPowerCard src={"http://10.0.4.41:9998/thelordoftheringsringsofpower.jpg"} />
-			<TvWheelOfTimeCard src={"http://10.0.4.41:9998/wheeloftime.jpg"} />
-			<TvWednesdayCard src={"http://10.0.4.41:9998/wednesday.jpg"} />
+			<TvHouseOfTheDragonCard src={getImageUrl("/houseofthedragon.jpg")} />
+			<TvRingsOfPowerCard src={getImageUrl("/thelordoftheringsringsofpower.jpg")} />
+			<TvWheelOfTimeCard src={getImageUrl("/wheeloftime.jpg")} />
+			<TvWednesdayCard src={getImageUrl("/wednesday.jpg")} />
 		</div>
 	</div>
 </div>

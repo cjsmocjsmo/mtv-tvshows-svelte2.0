@@ -1,13 +1,14 @@
 <script>
 	import { onMount } from 'svelte';
 	import BackArrow from '$lib/components/BackArrow.svelte';
+	import { config } from '$lib/config.js';
 	
 	let data = [];
 	let data1 = $state([]);
 	let data2 = $state([]);
 	let data3 = $state([]);
 
-	const wsuri = "ws://10.0.4.41:8765";
+	const wsuri = config.wsUrl;
 
 	function playtvshow(tvid) {
 		let ws = new WebSocket(wsuri);

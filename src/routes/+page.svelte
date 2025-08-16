@@ -1,15 +1,16 @@
 <script>
 	import MainTVList from '$lib/components/MainTVList.svelte';
 	import NavBar from '$lib/components/NavBar.svelte';
+	import { config } from '$lib/config.js';
 </script>
 
 <svelte:head>
-	<title>MTV-TVShows</title>
+	<title>{config.appName}</title>
 	<meta name="description" content="MTV" />
 </svelte:head>
 
 <main>
-	<h1>MTV TVShows</h1>
+	<h1>{config.appName}</h1>
 
 	<NavBar />
 	<div>
