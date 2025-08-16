@@ -1,87 +1,136 @@
 <script>
-import { onMount } from 'svelte';
-import { writable } from 'svelte/store';
-import BackArrow from '$lib/components/BackArrow.svelte';
-import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
+  import { onMount } from 'svelte';
+  import { writable } from 'svelte/store';
+  import BackArrow from '$lib/components/BackArrow.svelte';
+  import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 
-// Season data stores
-	let datas1 = writable([]);
-	let datas2 = writable([]);
-	let datas3 = writable([]);
-	let datas4 = writable([]);
+  // Season data stores
+  let datas1 = writable([]);
+  let datas2 = writable([]);
+  let datas3 = writable([]);
+  let datas4 = writable([]);
 
-let loading = writable(true);
-let currentSeason = 1;
-const totalSeasons = 4;
+  let loading = writable(true);
+  let currentSeason = 1;
+  const totalSeasons = 4;
 
-function playtvshow(tvid) {
-hanced WebSocket system
-dMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
-dMediaCommand(WEBSOCKET_COMMANDS.PLAY, tvid);
-}
+  function playtvshow(tvid) {
+    sendMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
+    sendMediaCommand(WEBSOCKET_COMMANDS.PLAY, tvid);
+  }
 
-function loadNextSeason() {
-tSeason > totalSeasons) {
-g.set(false);
-;
-st command = `enterprises${currentSeason}`;
-uestShowData(command);
-}
+  function loadNextSeason() {
+    if (currentSeason > totalSeasons) {
+      loading.set(false);
+      return;
+    }
+    const command = `enterprises${currentSeason}`;
+    requestShowData(command);
+  }
 
-onMount(() => {
-extSeason();
-});
+  onMount(() => {
+    loadNextSeason();
+  });
 
-const unsubscribe = wsLastResponse.subscribe((response) => {
-se && Array.isArray(response) && currentSeason <= totalSeasons) {
-tSeason) {
-				case 1: datas1.set(response); break;
-				case 2: datas2.set(response); break;
-				case 3: datas3.set(response); break;
-				case 4: datas4.set(response); break;
-tSeason++;
-extSeason, 300);
->
-<BackArrow path="/" />
-<div>
-fig.title}</h1>
-</div>
+  const unsubscribe = wsLastResponse.subscribe((response) => {
+    if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
+      switch(currentSeason) {
+        case 1: datas1.set(response); break;
+        case 2: datas2.set(response); break;
+        case 3: datas3.set(response); break;
+        case 4: datas4.set(response); break;
+      }
+      currentSeason++;
+      setTimeout(loadNextSeason, 300);
+    }
+  });
+</script>
 
-{#if $loading}
-g">
-g Enterprise seasons...</p>
-Templates}
-{/if}
+<main>
+  <BackArrow path="/" />
+  <div>
+    <h1>Star Trek: Enterprise</h1>
+  </div>
+
+  {#if $loading}
+    <div class="loading">
+      <p>Loading Star Trek: Enterprise seasons...</p>
+    </div>
+  {:else}
+    <div>
+      <h1>Season 1</h1>
+      <div class="seaList">
+        {#each $datas1 as d}
+          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {/each}
+      </div>
+    </div>
+
+    <div>
+      <h1>Season 2</h1>
+      <div class="seaList">
+        {#each $datas2 as d}
+          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {/each}
+      </div>
+    </div>
+
+    <div>
+      <h1>Season 3</h1>
+      <div class="seaList">
+        {#each $datas3 as d}
+          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {/each}
+      </div>
+    </div>
+
+    <div>
+      <h1>Season 4</h1>
+      <div class="seaList">
+        {#each $datas4 as d}
+          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {/each}
+      </div>
+    </div>
+  {/if}
 </main>
 
 <style>
-main {
-: column;
-tent: center;
--items: center;
-g {
-: center;
-g: 2rem;
-{
-: row;
-tent: center;
--items: center;
-}
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-button {
-d-color: #4caf50;
-black;
-black;
-g: 10px 20px;
-: center;
-: none;
-line-block;
-t-size: 20px;
-: 4px 2px;
-ter;
-}
+  .loading {
+    text-align: center;
+    padding: 2rem;
+  }
 
-button:hover {
-d-color: #45a049;
-}
+  .seaList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  button {
+    background-color: #4caf50;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 4px 2px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
 </style>

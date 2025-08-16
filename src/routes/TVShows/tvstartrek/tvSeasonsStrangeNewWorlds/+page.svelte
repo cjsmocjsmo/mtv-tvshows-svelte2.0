@@ -44,15 +44,44 @@ const unsubscribe = wsLastResponse.subscribe((response) => {
 });
 </script>
 
-<BackArrow path="/" />
-<div>
-	<h1>Star Trek: Strange New Worlds Seasons</h1>
-</div>
-
 <main>
-{#if $loading}
-	<p>Loading Strange New Worlds seasons...</p>
-{/if}
+	<BackArrow path="/" />
+	<div>
+		<h1>Star Trek: Strange New Worlds Seasons</h1>
+	</div>
+
+	{#if $loading}
+		<div class="loading">
+			<p>Loading Strange New Worlds seasons...</p>
+		</div>
+	{:else}
+		<div>
+			<h1>Season 1</h1>
+			<div class="seaList">
+				{#each $datas1 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
+
+		<div>
+			<h1>Season 2</h1>
+			<div class="seaList">
+				{#each $datas2 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
+
+		<div>
+			<h1>Season 3</h1>
+			<div class="seaList">
+				{#each $datas3 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
+	{/if}
 </main>
 
 <style>
@@ -60,9 +89,23 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
-/* Removed invalid CSS block */
+.loading {
+	text-align: center;
+	padding: 2rem;
+}
+
+.seaList {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 20px 0;
+}
 
 button {
 	background-color: #4caf50;
@@ -74,6 +117,7 @@ button {
 	font-size: 20px;
 	border-radius: 4px;
 	cursor: pointer;
+	margin: 4px 2px;
 }
 
 button:hover {
