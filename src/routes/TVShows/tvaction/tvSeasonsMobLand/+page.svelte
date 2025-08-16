@@ -22,7 +22,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `moblands${currentSeason}`;
     requestShowData(command);
   }
 

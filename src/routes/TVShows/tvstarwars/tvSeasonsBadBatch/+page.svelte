@@ -123,9 +123,3 @@
 		background-color: #45a049;
 	}
 </style>
-		text-decoration: none;
-		display: inline-block;
-		font-size: 20px;
-		margin: 4px 2px;
-	}
-</style>

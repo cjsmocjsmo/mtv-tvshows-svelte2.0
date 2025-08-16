@@ -57,7 +57,6 @@
 		}
 	});
 </script>
-</script>
 
 <main>
 	<BackArrow path="/" />

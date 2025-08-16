@@ -23,7 +23,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `picards${currentSeason}`;
     requestShowData(command);
   }
 

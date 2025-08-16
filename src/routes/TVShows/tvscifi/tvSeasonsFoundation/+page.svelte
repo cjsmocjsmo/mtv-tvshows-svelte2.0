@@ -22,7 +22,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `foundations${currentSeason}`;
     requestShowData(command);
   }
 

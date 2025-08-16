@@ -21,7 +21,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `obiwans${currentSeason}`;
     requestShowData(command);
   }
 

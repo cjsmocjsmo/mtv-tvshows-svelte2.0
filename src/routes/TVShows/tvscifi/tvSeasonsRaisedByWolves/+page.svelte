@@ -22,7 +22,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `raisedbywolvess${currentSeason}`;
     requestShowData(command);
   }
 

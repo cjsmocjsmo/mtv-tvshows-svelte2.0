@@ -23,7 +23,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `lostinspaces${currentSeason}`;
     requestShowData(command);
   }
 

@@ -27,7 +27,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `GET_TNG_SEASON_${currentSeason}`; // Replace with your actual command logic
     requestShowData(command);
   }
 

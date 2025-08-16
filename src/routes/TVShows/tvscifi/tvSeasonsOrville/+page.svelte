@@ -23,7 +23,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `orvilles${currentSeason}`;
     requestShowData(command);
   }
 

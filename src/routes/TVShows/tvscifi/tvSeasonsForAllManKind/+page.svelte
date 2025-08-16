@@ -24,7 +24,7 @@
       loading.set(false);
       return;
     }
-    const command = ;
+    const command = `forallmankinds${currentSeason}`;
     requestShowData(command);
   }
 

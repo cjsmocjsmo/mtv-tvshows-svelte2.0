@@ -46,14 +46,15 @@
 	<div><h1>{title}</h1></div>
 	
 	{#each Array.from({length: seasonCount}, (_, i) => i + 1) as seasonNum}
-		{@const data = seasonData[`season${seasonNum}`]}
+		{#await seasonData[`season${seasonNum}`].subscribe() then data}
 		<div>
 			<h2>Season {seasonNum}</h2>
-			{#if $data && $data.length > 0}
-				<MovList data={$data} />
+			{#if data && data.length > 0}
+				<MovList data={data} />
 			{:else}
 				<p>Loading Season {seasonNum}...</p>
 			{/if}
 		</div>
+		{/await}
 	{/each}
 </main>
