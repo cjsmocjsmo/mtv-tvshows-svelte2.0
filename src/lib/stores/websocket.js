@@ -18,7 +18,8 @@ export const WEBSOCKET_COMMANDS = {
 	PREVIOUS: 'previous',
 	NEXT: 'next',
 	SET_TV_MEDIA: 'set_tv_media',
-	// Add more commands as needed
+	
+	// Star Trek Commands
 	DISCOVERY: 'discovery',
 	VOYAGER: 'voyager',
 	ENTERPRISE: 'enterprise',
@@ -26,7 +27,68 @@ export const WEBSOCKET_COMMANDS = {
 	PICARD: 'picard',
 	LOWERDECKS: 'lowerdecks',
 	PRODIGY: 'prodigy',
-	STRANGENEWWORLDS: 'strangenewworlds'
+	STRANGENEWWORLDS: 'strangenewworlds',
+	STTV: 'sttv',
+	
+	// Star Wars Commands
+	MANDALORIAN: 'mandalorian',
+	BOBAFETT: 'bobafett',
+	ANDOR: 'andor',
+	AHSOKA: 'ahsoka',
+	OBIWAN: 'obiwan',
+	BADBATCH: 'badbatch',
+	VISIONS: 'visions',
+	SKELETONCREW: 'skeletoncrew',
+	TALESOFTHEJEDI: 'talesofthejedi',
+	TALESOFTHEEMPIRE: 'talesoftheempire',
+	TALESOFTHEUNDERWORLD: 'talesoftheunderworld',
+	
+	// MCU Commands
+	LOKI: 'loki',
+	WANDAVISION: 'wandavision',
+	FALCONWINTERSOLDIER: 'falconwintersoldier',
+	HAWKEYE: 'hawkeye',
+	MOONKNIGHT: 'moonknight',
+	SHEHULK: 'shehulk',
+	SECRETINVASION: 'secretinvasion',
+	IAMGROOT: 'iamgroot',
+	IRONHEART: 'ironheart',
+	
+	// Sci-Fi Commands
+	FOUNDATION: 'foundation',
+	SILO: 'silo',
+	FALLOUT: 'fallout',
+	ALTEREDCARBON: 'alteredcarbon',
+	COWBOYBEBOP: 'cowboybebop',
+	LOSTINSPACE: 'lostinspace',
+	FORALLMANKIND: 'forallmankind',
+	ORVILLE: 'orville',
+	NIGHTSKY: 'nightsky',
+	MONARCHLEGACYOFMONSTERS: 'monarchlegacyofmonsters',
+	RAISEDBYVOLVES: 'raisedbyvolves',
+	THELASTOFUS: 'thelastofus',
+	HALO: 'halo',
+	
+	// Fantasy Commands
+	HOUSEOFTHEDRAGON: 'houseofthedragon',
+	RINGSOFPOWER: 'ringsofpower',
+	WHEELOFTIME: 'wheeloftime',
+	WEDNESDAY: 'wednesday',
+	
+	// Action Commands
+	SHOGUN: 'shogun',
+	MOBLAND: 'mobland',
+	THECONTINENTAL: 'thecontinental',
+	
+	// Comedy Commands
+	FUBAR: 'fubar',
+	
+	// Science Commands
+	COLUMBIA: 'columbia',
+	PREHISTORICPLANET: 'prehistoricplanet',
+	
+	// Western Commands
+	HFORD: 'hford'
 };
 
 // Store for the WebSocket connection
