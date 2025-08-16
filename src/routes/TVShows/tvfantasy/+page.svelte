@@ -13,7 +13,7 @@
 			<TvHouseOfTheDragonCard src={"http://10.0.4.41:9998/houseofthedragon.jpg"} />
 			<TvRingsOfPowerCard src={"http://10.0.4.41:9998/thelordoftheringsringsofpower.jpg"} />
 			<TvWheelOfTimeCard src={"http://10.0.4.41:9998/wheeloftime.jpg"} />
-			<TvWednesdayCard src={"http://10.0.4:9998/Wednesday.jpg"} />
+			<TvWednesdayCard src={"http://10.0.4.41:9998/wednesday.jpg"} />
 		</div>
 	</div>
 </div>
@@ -21,23 +21,14 @@
 <style>
 	.bar {
 		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		grid-gap: 1rem;
+  		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  		gap: 1rem;
+  		padding: 1rem;
 	}
-
-	@media (min-width: 500px) {
-		.bar {
-			grid-template-columns: repeat(2, 1fr);
+	@container (min-width: 600px) {
+  		.bar {
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 		}
 	}
-	@media (min-width: 600px) {
-		.bar {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-	@media (min-width: 700px) {
-		.bar {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
+	
 </style>
