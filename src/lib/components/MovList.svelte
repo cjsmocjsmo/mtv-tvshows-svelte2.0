@@ -1,17 +1,23 @@
 <script>
+	import { sendCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
+	
 	let { data } = $props();
 
 	function playmovie(movid) {
-		const wsuri = "ws://10.0.4.41:8765";
-		const cmd1 = JSON.stringify({"command": "set_media", "media_id": movid});
-		const cmd2 = JSON.stringify({"command": "play"});
-		let ws = new WebSocket(wsuri);
-		ws.onopen = function() {
-			ws.send(cmd1);
-			ws.send(cmd2);
-		};
-	}
+		if (!movid) {
+			console.error('Movie ID is required to play movie');
+			return;
+		}
 
+		// Use the enhanced WebSocket system to send commands
+		// First set the media, then play it
+		sendCommand('set_media', { media_id: movid });
+		
+		// Small delay to ensure the media is set before playing
+		setTimeout(() => {
+			sendCommand(WEBSOCKET_COMMANDS.PLAY);
+		}, 100);
+	}
 </script>
 
 <div class="movlist">

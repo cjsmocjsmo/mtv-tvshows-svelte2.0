@@ -1,6 +1,8 @@
 <script>
 	import './styles.css';
-	import { sendCommand } from '$lib/stores/websocket.js';
+	import { onMount } from 'svelte';
+	import { sendCommand, connectWebSocket, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
+	import WebSocketStatus from '$lib/components/WebSocketStatus.svelte';
 	/**
 	 * @typedef {Object} Props
 	 * @property {import('svelte').Snippet} [children]
@@ -9,30 +11,39 @@
 	/** @type {Props} */
 	let { children } = $props();
 
+	// Connect WebSocket on mount
+	onMount(() => {
+		connectWebSocket();
+	});
+
 	let prev = () => {
-		sendCommand('previous');
+		sendCommand(WEBSOCKET_COMMANDS.PREVIOUS);
 		console.log("previous button clicked");
 	}
 
 	let play = () => {
-		sendCommand('play');
+		sendCommand(WEBSOCKET_COMMANDS.PLAY);
 	}
 
 	let pause = () => {
-		sendCommand('pause');
+		sendCommand(WEBSOCKET_COMMANDS.PAUSE);
 	}
 
 	let stop = () => {
-		sendCommand('stop');
+		sendCommand(WEBSOCKET_COMMANDS.STOP);
 	}
 
 	let next = () => {
-		sendCommand('next');
+		sendCommand(WEBSOCKET_COMMANDS.NEXT);
 		console.log("next button clicked");
 	}
 </script>
 
 <div class="app">
+	<header class="app-header">
+		<WebSocketStatus compact={true} />
+	</header>
+	
 	<main>
 		{@render children?.()}
 	</main>
@@ -127,6 +138,18 @@
 		min-height: 100vh;
 	}
 
+	.app-header {
+		padding: 0.5rem 1rem;
+		border-bottom: 1px solid #e5e7eb;
+		background: white;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		position: sticky;
+		top: 0;
+		z-index: 10;
+	}
+
 	main {
 		flex: 1;
 		display: flex;
@@ -174,5 +197,12 @@
 		padding: 1em;
 		border-radius: 50%;
 		background-color: yellowgreen;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.app-header {
+			background: #1f2937;
+			border-color: #374151;
+		}
 	}
 </style>
