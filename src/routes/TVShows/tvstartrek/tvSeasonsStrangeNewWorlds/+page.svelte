@@ -1,122 +1,85 @@
 <script>
-	import { onMount } from 'svelte';
-	import BackArrow from '$lib/components/BackArrow.svelte';
-	import { config } from '$lib/config.js';
-	
-	let data = [];
-	let data1 = $state([]);
-	let data2 = $state([]);
-	let data3 = $state([]);
+import { onMount } from 'svelte';
+import { writable } from 'svelte/store';
+import BackArrow from '$lib/components/BackArrow.svelte';
+import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 
-	const wsuri = config.wsUrl;
+// Season data stores
+	let datas1 = writable([]);
+	let datas2 = writable([]);
+	let datas3 = writable([]);
 
-	function playtvshow(tvid) {
-		let ws = new WebSocket(wsuri);
-		
-		ws.onopen = function() {
-			
-			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
-			ws.send(JSON.stringify({"command": "play"}));
-		};
-		ws.onmessage = function(event) {
-			data = JSON.parse(event.data);
-			// console.log("Message received from server: ", data);
-		};
-	}
+let loading = writable(true);
+let currentSeason = 1;
+const totalSeasons = 3;
 
-	onMount(async () => {
-		let ws1 = new WebSocket(wsuri);
-		
-		ws1.onopen = function() {
-			
-			ws1.send(JSON.stringify({"command": "strangenewworldss1"}));
-		};
-		ws1.onmessage = function(event) {
-			data1 = JSON.parse(event.data);
-			// console.log("Message received from server: ", data1);
-		};
+function playtvshow(tvid) {
+hanced WebSocket system
+dMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
+dMediaCommand(WEBSOCKET_COMMANDS.PLAY, tvid);
+}
 
-		let ws2 = new WebSocket(wsuri);
-		
-		ws2.onopen = function() {
-			
-			ws2.send(JSON.stringify({"command": "strangenewworldss2"}));
-		};
-		ws2.onmessage = function(event) {
-			data2 = JSON.parse(event.data);
-			// console.log("Message received from server: ", data2);
-		};
+function loadNextSeason() {
+tSeason > totalSeasons) {
+g.set(false);
+;
+st command = `strangenewworldss${currentSeason}`;
+uestShowData(command);
+}
 
-		let ws3 = new WebSocket(wsuri);
+onMount(() => {
+extSeason();
+});
 
-		ws3.onopen = function() {
-			ws3.send(JSON.stringify({"command": "strangenewworldss3"}));
-		};
-		ws3.onmessage = function(event) {
-			data3 = JSON.parse(event.data);
-			// console.log("Message received from server: ", data3);
-		};
-	});
-</script>
+const unsubscribe = wsLastResponse.subscribe((response) => {
+se && Array.isArray(response) && currentSeason <= totalSeasons) {
+tSeason) {
+				case 1: datas1.set(response); break;
+				case 2: datas2.set(response); break;
+				case 3: datas3.set(response); break;
+tSeason++;
+extSeason, 300);
+>
+<BackArrow path="/" />
+<div>
+fig.title}</h1>
+</div>
 
-<main>
-	<BackArrow path="/" />
-	<div>
-		<h1>Strange New Worlds</h1>
-	</div>
-	<div>
-		<h1>Season 1</h1>
-		<div class="seaList">
-			{#each data1 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
-		</div>
-	</div>
-	<div>
-		<h1>Season 2</h1>
-		<div class="seaList">
-			{#each data2 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
-		</div>
-	</div>
-	<div>
-		<h1>Season 3</h1>
-		<div class="seaList">
-			{#each data3 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
-		</div>
-	</div>
+{#if $loading}
+g">
+g Strange New Worlds seasons...</p>
+Templates}
+{/if}
 </main>
 
 <style>
-	main {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-	.seaList {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-	}
-	button {
-		background-color: #4caf50;
-		border-style: solid;
-		border-color: black;
-		border-width: 2px;
-		border-radius: 4px;
-		color: black;
-		padding: 10px 20px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 20px;
-		margin: 4px 2px;
-	}
+main {
+: column;
+tent: center;
+-items: center;
+g {
+: center;
+g: 2rem;
+{
+: row;
+tent: center;
+-items: center;
+}
+
+button {
+d-color: #4caf50;
+black;
+black;
+g: 10px 20px;
+: center;
+: none;
+line-block;
+t-size: 20px;
+: 4px 2px;
+ter;
+}
+
+button:hover {
+d-color: #45a049;
+}
 </style>

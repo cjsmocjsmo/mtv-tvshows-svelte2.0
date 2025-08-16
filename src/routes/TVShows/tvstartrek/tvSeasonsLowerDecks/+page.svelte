@@ -1,160 +1,87 @@
 <script>
-	import { onMount } from 'svelte';
-	import BackArrow from '$lib/components/BackArrow.svelte';
-	
-	const wsuri = "ws://10.0.4.41:8765";
-	let data = [];
-	let datas1 = $state([]);
-	let datas2 = $state([]);
-	let datas3 = $state([]);
-	let datas4 = $state([]);
-	let datas5 = $state([]);
+import { onMount } from 'svelte';
+import { writable } from 'svelte/store';
+import BackArrow from '$lib/components/BackArrow.svelte';
+import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 
-	function playtvshow(tvid) {
-		let ws = new WebSocket(wsuri);
-		
-		ws.onopen = function() {
-			
-			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
-			ws.send(JSON.stringify({"command": "play"}));
-		};
-		ws.onmessage = function(event) {
-			data = JSON.parse(event.data);
-			// console.log("Message received from server: ", data);
-		};
-	}
+// Season data stores
+	let datas1 = writable([]);
+	let datas2 = writable([]);
+	let datas3 = writable([]);
+	let datas4 = writable([]);
 
-	onMount(async () => {
-		let ws1 = new WebSocket(wsuri);
-		
-		ws1.onopen = function() {
-			
-			ws1.send(JSON.stringify({"command": "lowerdeckss1"}));
-		};
-		ws1.onmessage = function(event) {
-			datas1 = JSON.parse(event.data);
-			// console.log("Message received from server: ", datas1);
-		};
+let loading = writable(true);
+let currentSeason = 1;
+const totalSeasons = 4;
 
-		let ws2 = new WebSocket(wsuri);
-		
-		ws2.onopen = function() {
-			
-			ws2.send(JSON.stringify({"command": "lowerdeckss2"}));
-		};
-		ws2.onmessage = function(event) {
-			datas2 = JSON.parse(event.data);
-			// console.log("Message received from server: ", datas2);
-		};
+function playtvshow(tvid) {
+hanced WebSocket system
+dMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
+dMediaCommand(WEBSOCKET_COMMANDS.PLAY, tvid);
+}
 
-		let ws3 = new WebSocket(wsuri);
-		
-		ws3.onopen = function() {
-			
-			ws3.send(JSON.stringify({"command": "lowerdeckss3"}));
-		};
-		ws3.onmessage = function(event) {
-			datas3 = JSON.parse(event.data);
-			// console.log("Message received from server: ", datas3);
-		};
+function loadNextSeason() {
+tSeason > totalSeasons) {
+g.set(false);
+;
+st command = `lowerdeckss${currentSeason}`;
+uestShowData(command);
+}
 
-		let ws4 = new WebSocket(wsuri);
-		
-		ws4.onopen = function() {
-			ws4.send(JSON.stringify({"command": "lowerdeckss4"}));
-		};
-		ws4.onmessage = function(event) {
-			datas4 = JSON.parse(event.data);
-			// console.log("Message received from server: ", datas4);
-		};
+onMount(() => {
+extSeason();
+});
 
-		let ws5 = new WebSocket(wsuri);
+const unsubscribe = wsLastResponse.subscribe((response) => {
+se && Array.isArray(response) && currentSeason <= totalSeasons) {
+tSeason) {
+				case 1: datas1.set(response); break;
+				case 2: datas2.set(response); break;
+				case 3: datas3.set(response); break;
+				case 4: datas4.set(response); break;
+tSeason++;
+extSeason, 300);
+>
+<BackArrow path="/" />
+<div>
+fig.title}</h1>
+</div>
 
-		ws5.onopen = function() {
-			ws5.send(JSON.stringify({"command": "lowerdeckss5"}));
-		};
-		ws5.onmessage = function(event) {
-			datas5 = JSON.parse(event.data);
-			// console.log("Message received from server: ", datas5);
-		};
-	});
-</script>
-
-<main>
-	<BackArrow path="/" />
-	<div>
-		<h1>Lower Decks</h1>
-	</div>
-	<div>
-		<h1>Season 1</h1>
-		<div class="seaList">
-			{#each datas1 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
-		</div>
-	</div>
-	<div>
-		<h1>Season 2</h1>
-		<div class="seaList">
-			{#each datas2 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
-		</div>
-	</div>
-	<div>
-		<h1>Season 3</h1>
-		<div class="seaList">
-			{#each datas3 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
-		</div>
-	</div>
-	<div>
-		<h1>Season 4</h1>
-		<div class="seaList">
-			{#each datas4 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
-		</div>
-	</div>
-	<div>
-		<h1>Season 5</h1>
-		<div class="seaList">
-			{#each datas5 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
-		</div>
-	</div>
-	
+{#if $loading}
+g">
+g Lower Decks seasons...</p>
+Templates}
+{/if}
 </main>
 
 <style>
-	main {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-	.seaList {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-	}
-	button {
-		background-color: #4caf50;
-		border-style: solid;
-		border-color: black;
-		border-width: 2px;
-		border-radius: 4px;
-		color: black;
-		padding: 10px 20px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 20px;
-		margin: 4px 2px;
-	}
+main {
+: column;
+tent: center;
+-items: center;
+g {
+: center;
+g: 2rem;
+{
+: row;
+tent: center;
+-items: center;
+}
+
+button {
+d-color: #4caf50;
+black;
+black;
+g: 10px 20px;
+: center;
+: none;
+line-block;
+t-size: 20px;
+: 4px 2px;
+ter;
+}
+
+button:hover {
+d-color: #45a049;
+}
 </style>

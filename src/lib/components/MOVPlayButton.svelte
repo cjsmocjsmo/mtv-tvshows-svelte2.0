@@ -1,34 +1,13 @@
 <script>
-	import { onMount, onDestroy } from 'svelte';
+	import { sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 	export const prerender = false;
 	let { movid, src, alt } = $props();
 
-	let ws;
-
 	let playmovie = () => {
-		ws.onopen = function() {
-			ws.send({"command": "set_media", "media_id": movid});
-			ws.send({"command": "play"});
-		};
-		ws.onclose = function() {
-			ws.close();
-		};
-		ws.onerror = function(error) {
-			console.error("WebSocket error: ", error);
-		};
+		// Use the enhanced WebSocket system
+		sendMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, movid);
+		sendMediaCommand(WEBSOCKET_COMMANDS.PLAY, movid);
 	}
-
-	onMount(() => {
-		const wsuri = "ws://10.0.4.41:8765";
-		ws = new WebSocket(wsuri);
-	});
-
-	onDestroy(() => {
-		if (ws) {
-			ws.close();
-		}
-	});
-		
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->

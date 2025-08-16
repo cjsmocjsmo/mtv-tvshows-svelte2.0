@@ -1,53 +1,60 @@
 <script>
 	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store';
 	import BackArrow from '$lib/components/BackArrow.svelte';
+	import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 	
-	const wsuri = "ws://10.0.4.41:8765";
-	
-	let data = [];
-	let datas1 = $state([]);
-	let datas2 = $state([]);
-	let datas3 = $state([]);
-	let datas4 = $state([]);
-	let datas5 = $state([]);
-	let datas6 = $state([]);
-	let datas7 = $state([]);
+	// Season data stores
+	let datas1 = writable([]);
+	let datas2 = writable([]);
+	let datas3 = writable([]);
+	let datas4 = writable([]);
+	let datas5 = writable([]);
+	let datas6 = writable([]);
+	let datas7 = writable([]);
+
+	let loading = writable(true);
+	let currentSeason = 1;
+	const totalSeasons = 7;
 
 	function playtvshow(tvid) {
-		let ws = new WebSocket(wsuri);
-		
-		ws.onopen = function() {
-			
-			ws.send(JSON.stringify({"command": "set_tv_media", "media_tv_id": tvid}));
-			ws.send(JSON.stringify({"command": "play"}));
-		};
-		ws.onmessage = function(event) {
-			data = JSON.parse(event.data);
-			// console.log("Message received from server: ", data);
-		};
+		// Use enhanced WebSocket system
+		sendMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
+		sendMediaCommand(WEBSOCKET_COMMANDS.PLAY, tvid);
 	}
 
-	onMount(async () => {
-		let ws1 = new WebSocket(wsuri);
-		
-		ws1.onopen = function() {
-			
-			ws1.send(JSON.stringify({"command": "tngs1"}));
-		};
-		ws1.onmessage = function(event) {
-			datas1 = JSON.parse(event.data);
-			// console.log("Message received from server: ", datas1);
-		};
+	function loadNextSeason() {
+		if (currentSeason > totalSeasons) {
+			loading.set(false);
+			return;
+		}
 
-		let ws2 = new WebSocket(wsuri);
-		
-		ws2.onopen = function() {
+		const command = `tngs${currentSeason}`;
+		requestShowData(command);
+	}
+
+	onMount(() => {
+		loadNextSeason();
+	});
+
+	// Listen for WebSocket responses
+	const unsubscribe = wsLastResponse.subscribe((response) => {
+		if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
+			switch(currentSeason) {
+				case 1: datas1.set(response); break;
+				case 2: datas2.set(response); break;
+				case 3: datas3.set(response); break;
+				case 4: datas4.set(response); break;
+				case 5: datas5.set(response); break;
+				case 6: datas6.set(response); break;
+				case 7: datas7.set(response); break;
+			}
 			
-			ws2.send(JSON.stringify({"command": "tngs2"}));
-		};
-		ws2.onmessage = function(event) {
-			datas2 = JSON.parse(event.data);
-			// console.log("Message received from server: ", datas2);
+			currentSeason++;
+			setTimeout(loadNextSeason, 300);
+		}
+	});
+</script>
 		};
 
 		let ws3 = new WebSocket(wsuri);
@@ -113,23 +120,75 @@
 		<h1>The Next Generation</h1>
 	</div>
 
-	<div>
-		<h1>Season 1</h1>
-		<div class="seaList">
-			{#each datas1 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
+	{#if $loading}
+		<div class="loading">
+			<p>Loading Next Generation seasons...</p>
 		</div>
-	</div>
+	{:else}
+		<div>
+			<h1>Season 1</h1>
+			<div class="seaList">
+				{#each $datas1 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
 
-	<div>
-		<h1>Season 2</h1>
-		<div class="seaList">
-			{#each datas2 as d}
-				<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
-			{/each}
+		<div>
+			<h1>Season 2</h1>
+			<div class="seaList">
+				{#each $datas2 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
 		</div>
-	</div>
+
+		<div>
+			<h1>Season 3</h1>
+			<div class="seaList">
+				{#each $datas3 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
+
+		<div>
+			<h1>Season 4</h1>
+			<div class="seaList">
+				{#each $datas4 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
+
+		<div>
+			<h1>Season 5</h1>
+			<div class="seaList">
+				{#each $datas5 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
+
+		<div>
+			<h1>Season 6</h1>
+			<div class="seaList">
+				{#each $datas6 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
+
+		<div>
+			<h1>Season 7</h1>
+			<div class="seaList">
+				{#each $datas7 as d}
+					<button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+				{/each}
+			</div>
+		</div>
+	{/if}
+</main>
 
 	<div>
 		<h1>Season 3</h1>
