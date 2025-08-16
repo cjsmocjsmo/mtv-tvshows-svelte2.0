@@ -23,7 +23,7 @@
       loading.set(false);
       return;
     }
-    const command = `mandalarians${currentSeason}`;
+    const command = `mandalorians${currentSeason}`;
     requestShowData(command);
   }
 

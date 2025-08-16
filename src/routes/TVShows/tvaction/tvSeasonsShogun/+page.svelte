@@ -22,6 +22,7 @@
       return;
     }
     const command = `shoguns${currentSeason}`;
+    console.log(command);
     requestShowData(command);
   }
 

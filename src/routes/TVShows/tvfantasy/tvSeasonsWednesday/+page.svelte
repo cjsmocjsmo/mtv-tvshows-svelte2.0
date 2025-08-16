@@ -9,7 +9,7 @@
 
   let loading = writable(true);
   let currentSeason = 1;
-  const totalSeasons = 1;
+  const totalSeasons = 2;
 
   function playtvshow(tvid) {
     sendMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);

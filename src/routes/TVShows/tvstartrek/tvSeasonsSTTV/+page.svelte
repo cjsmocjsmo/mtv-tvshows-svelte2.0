@@ -23,7 +23,7 @@
       loading.set(false);
       return;
     }
-    const command = `sttv${currentSeason}`;
+    const command = `sttvs${currentSeason}`;
     requestShowData(command);
   }
 

@@ -10,7 +10,7 @@
 
   let loading = writable(true);
   let currentSeason = 1;
-  const totalSeasons = 2;
+  const totalSeasons = 1;
 
   function playtvshow(tvid) {
     sendMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
@@ -23,6 +23,7 @@
       return;
     }
     const command = `thecontinentals${currentSeason}`;
+    console.log(command);
     requestShowData(command);
   }
 
