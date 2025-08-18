@@ -2,8 +2,8 @@ import { PUBLIC_API_BASE_URL, PUBLIC_WS_URL, PUBLIC_APP_NAME } from '$env/static
 
 export const config = {
 	apiBaseUrl: PUBLIC_API_BASE_URL || 'http://localhost:9998',
-	wsUrl: PUBLIC_WS_URL || 'ws://localhost:8765',
-	imageBaseUrl: PUBLIC_API_BASE_URL || 'http://localhost:9998',
+	wsUrl: PUBLIC_WS_URL || 'ws://10.0.4.41:8765',
+	imageBaseUrl: PUBLIC_API_BASE_URL || 'http://10.0.4.41:9998',
 	appName: PUBLIC_APP_NAME || 'MTV TVShows'
 };
 
