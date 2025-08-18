@@ -9,6 +9,7 @@
 	import TvLowerDecksCard from '$lib/components/tvstartrek/TVLowerDecksCard.svelte';
 	import TvProdigyCard from '$lib/components/tvstartrek/TVProdigyCard.svelte';
 	import TvStrangeNewWorldsCard from '$lib/components/tvstartrek/TVStrangeNewWorldsCard.svelte';
+	import TvDeepSpaceNineCard from '$lib/components/tvstartrek/TVDeepSpaceNineCard.svelte';
 	import { getImageUrl } from '$lib/config.js';
 </script>
 
@@ -26,6 +27,7 @@
 			<TvLowerDecksCard src={getImageUrl("/lowerdecks.jpg")} />
 			<TvProdigyCard src={getImageUrl("/prodigy.jpg")} />
 			<TvStrangeNewWorldsCard src={getImageUrl("/strangenewworlds.jpg")} />
+			<TvDeepSpaceNineCard src={getImageUrl("/deepspacenine.jpg")} />
 		</div>
 	</div>
 </div>
