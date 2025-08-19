@@ -1,7 +1,7 @@
 <script>
 	import MainTVList from '$lib/components/MainTVList.svelte';
 	import NavBar from '$lib/components/NavBar.svelte';
-	import { config } from '$lib/config.js';
+	import config from '$lib/config.js';
 </script>
 
 <svelte:head>

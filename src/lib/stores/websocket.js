@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store';
-import { config } from '../config.js';
+import config from '../config.js';
 
 // WebSocket connection states
 export const WS_STATUS = {
