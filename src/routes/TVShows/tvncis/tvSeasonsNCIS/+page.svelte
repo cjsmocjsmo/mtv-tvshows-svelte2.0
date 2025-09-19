@@ -21,7 +21,7 @@
       loading.set(false);
       return;
     }
-    const command = `moblands${currentSeason}`;
+    const command = `nciss${currentSeason}`;
     console.log(command);
     requestShowData(command);
   }
@@ -44,12 +44,12 @@
 <main>
   <BackArrow path="/" />
   <div>
-    <h1>Mob Land</h1>
+    <h1>NCIS</h1>
   </div>
 
   {#if $loading}
     <div class="loading">
-      <p>Loading Mob Land seasons...</p>
+      <p>Loading NCIS seasons...</p>
     </div>
   {:else}
     <div>

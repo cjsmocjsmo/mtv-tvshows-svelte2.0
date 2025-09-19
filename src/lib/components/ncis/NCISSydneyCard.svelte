@@ -4,7 +4,7 @@
 
 <div class="baz2">
 	<div class="link-card">
-		<a href="/TVShows/tvcrime/tvSeasonsTonyAndZiva"><img {src} alt="" /></a>
+		<a href="/TVShows/tvncis/tvSeasonsNCISSydney"><img {src} alt="" /></a>
 	</div>
 </div>
 
