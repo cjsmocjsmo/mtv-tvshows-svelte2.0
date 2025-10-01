@@ -6,10 +6,12 @@
 
   // Season data stores
   let datas1 = writable([]);
+  let datas2 = writable([]);
+  let datas3 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
-  const totalSeasons = 1;
+  const totalSeasons = 3;
 
   function playtvshow(tvid) {
     sendMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
@@ -56,6 +58,18 @@
       <h1>Season 1</h1>
       <div class="seaList">
         {#each $datas1 as d}
+          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {/each}
+      </div>
+      <h1>Season 2</h1>
+      <div class="seaList">
+        {#each $datas2 as d}
+          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {/each}
+      </div>
+      <h1>Season 3</h1>
+      <div class="seaList">
+        {#each $datas3 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
