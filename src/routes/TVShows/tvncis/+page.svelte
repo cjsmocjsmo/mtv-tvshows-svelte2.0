@@ -4,6 +4,8 @@
 	import NCISHawaii from '$lib/components/ncis/NCISHawaii.svelte';
 	import NCISSydney from '$lib/components/ncis/NCISSydneyCard.svelte';
 	import NCISOrigins from '$lib/components/ncis/NCISOriginsCard.svelte';
+	import NCISLA from '$lib/components/ncis/NCISLACard.svelte';
+	import NCISNewOrleans from '$lib/components/ncis/NCISNewOrleansCard.svelte';
 	import TonyAndZiva from '$lib/components/ncis/TonyAndZivaCard.svelte';
 
     
@@ -16,6 +18,8 @@
 	<div class="foo">
 		<div class="bar">
 			<NCIS src={"http://10.0.4.41:9998/ncis.jpg"} />
+			<NCISLA src={"http://10.0.4.41:9998/ncis_los_angeles.jpg"} />
+			<NCISNewOrleans src={"http://10.0.4.41:9998/ncis_new_orleans.jpg"} />
 			<NCISHawaii src={"http://10.0.4.41:9998/ncis_hawaii.jpg"} />
 			<NCISSydney src={"http://10.0.4.41:9998/ncis_sydney.jpg"} />
 			<NCISOrigins src={"http://10.0.4.41:9998/ncis_origins.jpg"} />
