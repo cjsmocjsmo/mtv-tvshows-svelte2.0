@@ -55,6 +55,27 @@
     if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
       switch(currentSeason) {
         case 1: datas1.set(response); break;
+        case 2: datas2.set(response); break;
+        case 3: datas3.set(response); break;
+        case 4: datas4.set(response); break;
+        case 5: datas5.set(response); break;
+        case 6: datas6.set(response); break;
+        case 7: datas7.set(response); break;
+        case 8: datas8.set(response); break;
+        case 9: datas9.set(response); break;
+        case 10: datas10.set(response); break;
+        case 11: datas11.set(response); break;
+        case 12: datas12.set(response); break;
+        case 13: datas13.set(response); break;
+        case 14: datas14.set(response); break;
+        case 15: datas15.set(response); break;
+        case 16: datas16.set(response); break;
+        case 17: datas17.set(response); break;
+        case 18: datas18.set(response); break;
+        case 19: datas19.set(response); break;
+        case 20: datas20.set(response); break;
+        case 21: datas21.set(response); break;
+        case 22: datas22.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
