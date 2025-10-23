@@ -25,7 +25,7 @@
       loading.set(false);
       return;
     }
-    const command = `personofintersts${currentSeason}`;
+    const command = `personofinterests${currentSeason}`;
     requestShowData(command);
   }
 
@@ -51,12 +51,12 @@
 <main>
   <BackArrow path="/" />
   <div>
-    <h1>Prehistoric Planet</h1>
+    <h1>Person Of Interest</h1>
   </div>
 
   {#if $loading}
     <div class="loading">
-      <p>Loading Prehistoric Planet seasons...</p>
+      <p>Loading Person Of Interest seasons...</p>
     </div>
   {:else}
     <div>
