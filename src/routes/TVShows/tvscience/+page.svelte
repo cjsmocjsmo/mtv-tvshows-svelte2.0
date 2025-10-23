@@ -2,6 +2,7 @@
 	import BackArrow from '$lib/components/BackArrow.svelte';
 	import TvPreHistoricPlanetCard from '$lib/components/science/TVPreHistoricPlanetCard.svelte';
 	import TvColumbiaCard from '$lib/components/science/TVColumbiaCard.svelte';
+	import TVPersonOfInterestCard from '$lib/components/science/TVPersonOfInterestCard.svelte';
 </script>
 
 <div>
@@ -10,6 +11,7 @@
 		<div class="bar">
 			<TvColumbiaCard src={"http://10.0.4.41:9998/columbia.jpg"} />
 			<TvPreHistoricPlanetCard src={"http://10.0.4.41:9998/prehistoricplanet.jpg"} />
+			<TVPersonOfInterestCard src={"http://10.0.4.41:9998/personofinterest.jpg"} />
 		</div>
 	</div>
 </div>
