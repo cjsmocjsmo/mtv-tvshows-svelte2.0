@@ -1,9 +1,9 @@
 export const TV_CATEGORIES = [
 	{ id: 'action', name: 'Action', path: '/TVShows/tvaction' },
 	{ id: 'comedy', name: 'Comedy', path: '/TVShows/tvcomedy' },
-	{ id: 'ncis', name: 'NCIS', path: '/TVShows/tvncis' },
 	{ id: 'fantasy', name: 'Fantasy', path: '/TVShows/tvfantasy' },
 	{ id: 'mcu', name: 'MCU', path: '/TVShows/tvmcu' },
+	{ id: 'ncis', name: 'NCIS', path: '/TVShows/tvncis' },
 	{ id: 'science', name: 'Science', path: '/TVShows/tvscience' },
 	{ id: 'scifi', name: 'SciFi', path: '/TVShows/tvscifi' },
 	{ id: 'startrek', name: 'Star Trek', path: '/TVShows/tvstartrek' },
