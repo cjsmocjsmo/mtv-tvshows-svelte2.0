@@ -36,6 +36,7 @@
       switch(currentSeason) {
         case 1: datas1.set(response); break;
         case 2: datas2.set(response); break;
+        case 3: datas3.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
