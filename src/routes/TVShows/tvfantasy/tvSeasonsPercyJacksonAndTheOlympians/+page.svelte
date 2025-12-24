@@ -22,7 +22,7 @@
       loading.set(false);
       return;
     }
-    const command = `percyjacksonandtheolympians${currentSeason}`;
+    const command = `percyjacksonandtheolympianss${currentSeason}`;
     requestShowData(command);
   }
 
