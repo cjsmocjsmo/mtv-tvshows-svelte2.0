@@ -4,6 +4,7 @@
 	import TvRingsOfPowerCard from '$lib/components/fantasy/TVRingsOfPowerCard.svelte';
 	import TvWheelOfTimeCard from '$lib/components/fantasy/TVWheelOfTimeCard.svelte';
 	import TvWednesdayCard from '$lib/components/fantasy/TVWednesdayCard.svelte';
+	import TvPercyJacksonAndTheOlympiansCard from '$lib/components/fantasy/TVPercyJacksonAndTheOlympiansCard.svelte';
 	import { getImageUrl } from '$lib/config.js';
 </script>
 
@@ -15,6 +16,7 @@
 			<TvRingsOfPowerCard src={getImageUrl("/thelordoftheringsringsofpower.jpg")} />
 			<TvWheelOfTimeCard src={getImageUrl("/wheeloftime.jpg")} />
 			<TvWednesdayCard src={getImageUrl("/wednesday.jpg")} />
+			<TvPercyJacksonAndTheOlympiansCard src={getImageUrl("/percyjacksonandtheolympians.jpg")} />
 		</div>
 	</div>
 </div>
