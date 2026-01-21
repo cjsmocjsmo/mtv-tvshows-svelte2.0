@@ -1,5 +1,6 @@
 export const TV_CATEGORIES = [
 	{ id: 'action', name: 'Action', path: '/TVShows/tvaction' },
+	{ id: 'cartoons', name: 'Cartoons', path: '/TVShows/tvcartoons' },
 	{ id: 'comedy', name: 'Comedy', path: '/TVShows/tvcomedy' },
 	{ id: 'fantasy', name: 'Fantasy', path: '/TVShows/tvfantasy' },
 	{ id: 'mcu', name: 'MCU', path: '/TVShows/tvmcu' },
