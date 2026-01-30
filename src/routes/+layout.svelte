@@ -1,8 +1,7 @@
 <script>
-	import './styles.css';
-	import { onMount } from 'svelte';
-	import { sendCommand, connectWebSocket, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
-	import WebSocketStatus from '$lib/components/WebSocketStatus.svelte';
+	import { wsLastResponse } from '$lib/stores/websocket.js';
+	import { get } from 'svelte/store';
+	let state = false;
 	/**
 	 * @typedef {Object} Props
 	 * @property {import('svelte').Snippet} [children]
@@ -11,9 +10,16 @@
 	/** @type {Props} */
 	let { children } = $props();
 
-	// Connect WebSocket on mount
+	// Connect WebSocket and get state on mount
 	onMount(() => {
 		connectWebSocket();
+		sendCommand('getstate');
+		const unsubscribe = wsLastResponse.subscribe((data) => {
+			if (data && data.command === 'getstate') {
+				state = data;
+				unsubscribe();
+			}
+		});
 	});
 
 	let prev = () => {
@@ -65,12 +71,9 @@
 						d="M267.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160L64 241V96c0-17.7-14.3-32-32-32S0 78.3 0 96V416c0 17.7 14.3 32 32 32s32-14.3 32-32V271l11.5 9.6 192 160z"
 					/>
 				</svg>
-				<!-- <p>Backwards</p> -->
 			</div>
 		
-			<!-- <PlayButtonComp />
-			<PauseButtonComp /> -->
-		
+			{#if ! state}
 			<div
 				id="playBtn"
 				class="controlBtn"
@@ -83,7 +86,7 @@
 			>
 				<p>Play</p>
 			</div>
-		
+			{:else }
 			<div
 				id="pauseBtn"
 				class="controlBtn"
@@ -96,7 +99,7 @@
 			>
 				<p>Pause</p>
 			</div>
-		
+			{/if}
 			<div
 				id="stopBtn"
 				class="controlBtn"
