@@ -1,14 +1,13 @@
 <script>
+
 	import { wsLastResponse } from '$lib/stores/websocket.js';
 	import { get } from 'svelte/store';
-	let state = false;
-	/**
-	 * @typedef {Object} Props
-	 * @property {import('svelte').Snippet} [children]
-	 */
-
-	/** @type {Props} */
+	import { onMount } from 'svelte';
+	import WebSocketStatus from '$lib/components/WebSocketStatus.svelte';
+	import { connectWebSocket, sendCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 	let { children } = $props();
+
+	let state = null;
 
 	// Connect WebSocket and get state on mount
 	onMount(() => {
