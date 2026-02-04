@@ -45,9 +45,9 @@
 </script>
 
 <div class="app">
-	<header class="app-header">
+	<!-- <header class="app-header">
 		<WebSocketStatus compact={true} />
-	</header>
+	</header> -->
 	
 	<main>
 		{@render children?.()}
@@ -140,7 +140,7 @@
 		min-height: 100vh;
 	}
 
-	.app-header {
+	/* .app-header {
 		padding: 0.5rem 1rem;
 		border-bottom: 1px solid #e5e7eb;
 		background: white;
@@ -150,7 +150,7 @@
 		position: sticky;
 		top: 0;
 		z-index: 10;
-	}
+	} */
 
 	main {
 		flex: 1;
@@ -201,10 +201,10 @@
 		background-color: yellowgreen;
 	}
 
-	@media (prefers-color-scheme: dark) {
+	/* @media (prefers-color-scheme: dark) {
 		.app-header {
 			background: #1f2937;
 			border-color: #374151;
 		}
-	}
+	} */
 </style>
