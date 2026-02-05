@@ -6,7 +6,6 @@
 
   // Season data stores
   let datas1 = writable([]);
-  let datas2 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
@@ -35,7 +34,6 @@
     if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
       switch(currentSeason) {
         case 1: datas1.set(response); break;
-        case 2: datas2.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
@@ -58,15 +56,6 @@
       <h1>Season 1</h1>
       <div class="seaList">
         {#each $datas1 as d}
-          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
-        {/each}
-      </div>
-    </div>
-
-    <div>
-      <h1>Season 2</h1>
-      <div class="seaList">
-        {#each $datas2 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
