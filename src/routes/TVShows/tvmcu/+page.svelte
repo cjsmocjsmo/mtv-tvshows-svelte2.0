@@ -9,6 +9,7 @@
 	import WandavisionCard from '$lib/components/tvmcu/TVWandavisionCard.svelte';
 	import SecretInvasionCard from '$lib/components/tvmcu/TVSecretInvasionCard.svelte';
 	import IronHeartCard from '$lib/components/tvmcu/TVIronHeartCard.svelte';
+	import WondermanCard from '$lib/components/tvmcu/TVWondermanCard.svelte';
 
 </script>
 
@@ -25,6 +26,7 @@
 			<TvFalconWinterSoldierCard src={"http://10.0.4.41:9998/falconwintersoldier.jpg"} />
 			<WandavisionCard src={"http://10.0.4.41:9998/wandavision.jpg"} />
 			<IronHeartCard src={"http://10.0.4.41:9998/ironheart.jpg"} />
+			<WondermanCard src={"http://10.0.4.41:9998/wonderman.jpg"} />
 		</div>
 	</div>
 </div>
