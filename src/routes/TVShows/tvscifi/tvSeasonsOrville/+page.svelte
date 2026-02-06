@@ -4,10 +4,10 @@
   import BackArrow from '$lib/components/BackArrow.svelte';
   import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 
-  // Season data stores
-  let datas1 = writable([]);
-  let datas2 = writable([]);
-  let datas3 = writable([]);
+  // Season ORVdata stores
+  let ORVdatas1 = writable([]);
+  let ORVdatas2 = writable([]);
+  let ORVdatas3 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
@@ -34,9 +34,9 @@
   const unsubscribe = wsLastResponse.subscribe((response) => {
     if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
       switch(currentSeason) {
-        case 1: datas1.set(response); break;
-        case 2: datas2.set(response); break;
-        case 3: datas3.set(response); break;
+        case 1: ORVdatas1.set(response); break;
+        case 2: ORVdatas2.set(response); break;
+        case 3: ORVdatas3.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
@@ -58,7 +58,7 @@
     <div>
       <h1>Season 1</h1>
       <div class="seaList">
-        {#each $datas1 as d}
+        {#each $ORVdatas1 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -67,7 +67,7 @@
     <div>
       <h1>Season 2</h1>
       <div class="seaList">
-        {#each $datas2 as d}
+        {#each $ORVdatas2 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -76,7 +76,7 @@
     <div>
       <h1>Season 3</h1>
       <div class="seaList">
-        {#each $datas3 as d}
+        {#each $ORVdatas3 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>

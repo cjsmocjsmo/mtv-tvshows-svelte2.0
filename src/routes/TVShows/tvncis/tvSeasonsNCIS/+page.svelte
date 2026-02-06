@@ -4,29 +4,29 @@
   import BackArrow from '$lib/components/BackArrow.svelte';
   import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 
-  // Season data stores
-  let datas1 = writable([]);
-  let datas2 = writable([]);
-  let datas3 = writable([]);
-  let datas4 = writable([]);
-  let datas5 = writable([]);
-  let datas6 = writable([]);
-  let datas7 = writable([]);
-  let datas8 = writable([]);
-  let datas9 = writable([]);
-  let datas10 = writable([]);
-  let datas11 = writable([]);
-  let datas12 = writable([]);
-  let datas13 = writable([]);
-  let datas14 = writable([]);
-  let datas15 = writable([]);
-  let datas16 = writable([]);
-  let datas17 = writable([]);
-  let datas18 = writable([]);
-  let datas19 = writable([]);
-  let datas20 = writable([]);
-  let datas21 = writable([]);
-  let datas22 = writable([]);
+  // Season NCISdata stores
+  let NCISdatas1 = writable([]);
+  let NCISdatas2 = writable([]);
+  let NCISdatas3 = writable([]);
+  let NCISdatas4 = writable([]);
+  let NCISdatas5 = writable([]);
+  let NCISdatas6 = writable([]);
+  let NCISdatas7 = writable([]);
+  let NCISdatas8 = writable([]);
+  let NCISdatas9 = writable([]);
+  let NCISdatas10 = writable([]);
+  let NCISdatas11 = writable([]);
+  let NCISdatas12 = writable([]);
+  let NCISdatas13 = writable([]);
+  let NCISdatas14 = writable([]);
+  let NCISdatas15 = writable([]);
+  let NCISdatas16 = writable([]);
+  let NCISdatas17 = writable([]);
+  let NCISdatas18 = writable([]);
+  let NCISdatas19 = writable([]);
+  let NCISdatas20 = writable([]);
+  let NCISdatas21 = writable([]);
+  let NCISdatas22 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
@@ -54,28 +54,28 @@
   const unsubscribe = wsLastResponse.subscribe((response) => {
     if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
       switch(currentSeason) {
-        case 1: datas1.set(response); break;
-        case 2: datas2.set(response); break;
-        case 3: datas3.set(response); break;
-        case 4: datas4.set(response); break;
-        case 5: datas5.set(response); break;
-        case 6: datas6.set(response); break;
-        case 7: datas7.set(response); break;
-        case 8: datas8.set(response); break;
-        case 9: datas9.set(response); break;
-        case 10: datas10.set(response); break;
-        case 11: datas11.set(response); break;
-        case 12: datas12.set(response); break;
-        case 13: datas13.set(response); break;
-        case 14: datas14.set(response); break;
-        case 15: datas15.set(response); break;
-        case 16: datas16.set(response); break;
-        case 17: datas17.set(response); break;
-        case 18: datas18.set(response); break;
-        case 19: datas19.set(response); break;
-        case 20: datas20.set(response); break;
-        case 21: datas21.set(response); break;
-        case 22: datas22.set(response); break;
+        case 1: NCISdatas1.set(response); break;
+        case 2: NCISdatas2.set(response); break;
+        case 3: NCISdatas3.set(response); break;
+        case 4: NCISdatas4.set(response); break;
+        case 5: NCISdatas5.set(response); break;
+        case 6: NCISdatas6.set(response); break;
+        case 7: NCISdatas7.set(response); break;
+        case 8: NCISdatas8.set(response); break;
+        case 9: NCISdatas9.set(response); break;
+        case 10: NCISdatas10.set(response); break;
+        case 11: NCISdatas11.set(response); break;
+        case 12: NCISdatas12.set(response); break;
+        case 13: NCISdatas13.set(response); break;
+        case 14: NCISdatas14.set(response); break;
+        case 15: NCISdatas15.set(response); break;
+        case 16: NCISdatas16.set(response); break;
+        case 17: NCISdatas17.set(response); break;
+        case 18: NCISdatas18.set(response); break;
+        case 19: NCISdatas19.set(response); break;
+        case 20: NCISdatas20.set(response); break;
+        case 21: NCISdatas21.set(response); break;
+        case 22: NCISdatas22.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
@@ -97,133 +97,133 @@
     <div>
       <h1>Season 1</h1>
       <div class="seaList">
-        {#each $datas1 as d1}
+        {#each $NCISdatas1 as d1}
           <button onclick={() => playtvshow(d1.TvId)}>{d1.Episode}</button>
         {/each}
       </div>
       <h1>Season 2</h1>
       <div class="seaList">
-        {#each $datas2 as d2}
+        {#each $NCISdatas2 as d2}
           <button onclick={() => playtvshow(d2.TvId)}>{d2.Episode}</button>
         {/each}
       </div>
       <h1>Season 3</h1>
       <div class="seaList">
-        {#each $datas3 as d3}
+        {#each $NCISdatas3 as d3}
           <button onclick={() => playtvshow(d3.TvId)}>{d3.Episode}</button>
         {/each}
       </div>
       <h1>Season 4</h1>
       <div class="seaList">
-        {#each $datas4 as d4}
+        {#each $NCISdatas4 as d4}
           <button onclick={() => playtvshow(d4.TvId)}>{d4.Episode}</button>
         {/each}
       </div>
       <h1>Season 5</h1>
       <div class="seaList">
-        {#each $datas5 as d5}
+        {#each $NCISdatas5 as d5}
           <button onclick={() => playtvshow(d5.TvId)}>{d5.Episode}</button>
         {/each}
       </div>
       <h1>Season 6</h1>
       <div class="seaList">
-        {#each $datas6 as d6}
+        {#each $NCISdatas6 as d6}
           <button onclick={() => playtvshow(d6.TvId)}>{d6.Episode}</button>
         {/each}
       </div>
       <h1>Season 7</h1>
       <div class="seaList">
-        {#each $datas7 as d7}
+        {#each $NCISdatas7 as d7}
           <button onclick={() => playtvshow(d7.TvId)}>{d7.Episode}</button>
         {/each}
       </div>
       <h1>Season 8</h1>
       <div class="seaList">
-        {#each $datas8 as d8}
+        {#each $NCISdatas8 as d8}
           <button onclick={() => playtvshow(d8.TvId)}>{d8.Episode}</button>
         {/each}
       </div>
       <h1>Season 9</h1>
       <div class="seaList">
-        {#each $datas9 as d9}
+        {#each $NCISdatas9 as d9}
           <button onclick={() => playtvshow(d9.TvId)}>{d9.Episode}</button>
         {/each}
       </div>
       <h1>Season 10</h1>
       <div class="seaList">
-        {#each $datas10 as d10}
+        {#each $NCISdatas10 as d10}
           <button onclick={() => playtvshow(d10.TvId)}>{d10.Episode}</button>
         {/each}
       </div>
       <h1>Season 11</h1>
       <div class="seaList">
-        {#each $datas11 as d11}
+        {#each $NCISdatas11 as d11}
           <button onclick={() => playtvshow(d11.TvId)}>{d11.Episode}</button>
         {/each}
       </div>
       <h1>Season 12</h1>
       <div class="seaList">
-        {#each $datas12 as d12}
+        {#each $NCISdatas12 as d12}
           <button onclick={() => playtvshow(d12.TvId)}>{d12.Episode}</button>
         {/each}
       </div>
       <h1>Season 13</h1>
       <div class="seaList">
-        {#each $datas13 as d13}
+        {#each $NCISdatas13 as d13}
           <button onclick={() => playtvshow(d13.TvId)}>{d13.Episode}</button>
         {/each}
       </div>
       <h1>Season 14</h1>
       <div class="seaList">
-        {#each $datas14 as d14}
+        {#each $NCISdatas14 as d14}
           <button onclick={() => playtvshow(d14.TvId)}>{d14.Episode}</button>
         {/each}
       </div>
       <h1>Season 15</h1>
       <div class="seaList">
-        {#each $datas15 as d15}
+        {#each $NCISdatas15 as d15}
           <button onclick={() => playtvshow(d15.TvId)}>{d15.Episode}</button>
         {/each}
       </div>
       <h1>Season 16</h1>
       <div class="seaList">
-        {#each $datas16 as d16}
+        {#each $NCISdatas16 as d16}
           <button onclick={() => playtvshow(d16.TvId)}>{d16.Episode}</button>
         {/each}
       </div>
       <h1>Season 17</h1>
       <div class="seaList">
-        {#each $datas17 as d17}
+        {#each $NCISdatas17 as d17}
           <button onclick={() => playtvshow(d17.TvId)}>{d17.Episode}</button>
         {/each}
       </div>
       <h1>Season 18</h1>
       <div class="seaList">
-        {#each $datas18 as d18}
+        {#each $NCISdatas18 as d18}
           <button onclick={() => playtvshow(d18.TvId)}>{d18.Episode}</button>
         {/each}
       </div>
       <h1>Season 19</h1>
       <div class="seaList">
-        {#each $datas19 as d19}
+        {#each $NCISdatas19 as d19}
           <button onclick={() => playtvshow(d19.TvId)}>{d19.Episode}</button>
         {/each}
       </div>
       <h1>Season 20</h1>
       <div class="seaList">
-        {#each $datas20 as d20}
+        {#each $NCISdatas20 as d20}
           <button onclick={() => playtvshow(d20.TvId)}>{d20.Episode}</button>
         {/each}
       </div>
       <h1>Season 21</h1>
       <div class="seaList">
-        {#each $datas21 as d21}
+        {#each $NCISdatas21 as d21}
           <button onclick={() => playtvshow(d21.TvId)}>{d21.Episode}</button>
         {/each}
       </div>
       <h1>Season 22</h1>
       <div class="seaList">
-        {#each $datas22 as d22}
+        {#each $NCISdatas22 as d22}
           <button onclick={() => playtvshow(d22.TvId)}>{d22.Episode}</button>
         {/each}
       </div>

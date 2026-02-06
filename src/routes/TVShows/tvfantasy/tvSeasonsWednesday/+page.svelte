@@ -5,8 +5,8 @@
   import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 
   // Season data stores
-  let datas1 = writable([]);
-  let datas2 = writable([]);
+  let Weddatas1 = writable([]);
+  let Weddatas2 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
@@ -33,8 +33,8 @@
   const unsubscribe = wsLastResponse.subscribe((response) => {
     if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
       switch(currentSeason) {
-        case 1: datas1.set(response); break;
-        case 2: datas2.set(response); break;
+        case 1: Weddatas1.set(response); break;
+        case 2: Weddatas2.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
@@ -56,7 +56,7 @@
     <div>
       <h1>Season 1</h1>
       <div class="seaList">
-        {#each $datas1 as d1}
+        {#each $Weddatas1 as d1}
           <button onclick={() => playtvshow(d1.TvId)}>{d1.Episode}</button>
         {/each}
       </div>
@@ -64,7 +64,7 @@
     <div>
       <h1>Season 2</h1>
       <div class="seaList">
-        {#each $datas2 as d2}
+        {#each $Weddatas2 as d2}
           <button onclick={() => playtvshow(d2.TvId)}>{d2.Episode}</button>
         {/each}
       </div>

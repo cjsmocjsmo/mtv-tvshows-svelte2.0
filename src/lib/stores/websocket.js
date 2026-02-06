@@ -20,54 +20,57 @@ export const WEBSOCKET_COMMANDS = {
 	SET_TV_MEDIA: 'set_tv_media',
 	
 	// Star Trek Commands
+	DEEPSPACENINE: 'deepspacenine',
 	DISCOVERY: 'discovery',
-	VOYAGER: 'voyager',
 	ENTERPRISE: 'enterprise',
+	ENTERPRISE: 'enterprise',
+	LOWERDECKS: 'lowerdecks',
 	NEXTGEN: 'nextgen',
 	PICARD: 'picard',
-	LOWERDECKS: 'lowerdecks',
 	PRODIGY: 'prodigy',
+	STARFLEETACADEMY: 'starfleetacademy',
 	STRANGENEWWORLDS: 'strangenewworlds',
 	STTV: 'sttv',
+	VOYAGER: 'voyager',
 	
 	// Star Wars Commands
-	MANDALORIAN: 'mandalorian',
-	BOBAFETT: 'bobafett',
-	ANDOR: 'andor',
 	AHSOKA: 'ahsoka',
-	OBIWAN: 'obiwan',
+	ANDOR: 'andor',
 	BADBATCH: 'badbatch',
-	VISIONS: 'visions',
+	BOBAFETT: 'bobafett',
+	MANDALORIAN: 'mandalorian',
+	OBIWAN: 'obiwan',
 	SKELETONCREW: 'skeletoncrew',
-	TALESOFTHEJEDI: 'talesofthejedi',
 	TALESOFTHEEMPIRE: 'talesoftheempire',
+	TALESOFTHEJEDI: 'talesofthejedi',
 	TALESOFTHEUNDERWORLD: 'talesoftheunderworld',
+	VISIONS: 'visions',
 	
 	// MCU Commands
-	LOKI: 'loki',
-	WANDAVISION: 'wandavision',
 	FALCONWINTERSOLDIER: 'falconwintersoldier',
 	HAWKEYE: 'hawkeye',
-	MOONKNIGHT: 'moonknight',
-	SHEHULK: 'shehulk',
-	SECRETINVASION: 'secretinvasion',
 	IAMGROOT: 'iamgroot',
 	IRONHEART: 'ironheart',
+	LOKI: 'loki',
+	MOONKNIGHT: 'moonknight',
+	SECRETINVASION: 'secretinvasion',
+	SHEHULK: 'shehulk',
+	WANDAVISION: 'wandavision',
 	
 	// Sci-Fi Commands
-	FOUNDATION: 'foundation',
-	SILO: 'silo',
-	FALLOUT: 'fallout',
 	ALTEREDCARBON: 'alteredcarbon',
 	COWBOYBEBOP: 'cowboybebop',
-	LOSTINSPACE: 'lostinspace',
+	FALLOUT: 'fallout',
 	FORALLMANKIND: 'forallmankind',
-	ORVILLE: 'orville',
-	NIGHTSKY: 'nightsky',
-	MONARCHLEGACYOFMONSTERS: 'monarchlegacyofmonsters',
-	RAISEDBYVOLVES: 'raisedbyvolves',
-	THELASTOFUS: 'thelastofus',
+	FOUNDATION: 'foundation',
 	HALO: 'halo',
+	LOSTINSPACE: 'lostinspace',
+	MONARCHLEGACYOFMONSTERS: 'monarchlegacyofmonsters',
+	NIGHTSKY: 'nightsky',
+	ORVILLE: 'orville',
+	RAISEDBYVOLVES: 'raisedbyvolves',
+	SILO: 'silo',
+	THELASTOFUS: 'thelastofus',
 	
 	// Fantasy Commands
 	HOUSEOFTHEDRAGON: 'houseofthedragon',
@@ -80,11 +83,33 @@ export const WEBSOCKET_COMMANDS = {
 	MOBLAND: 'mobland',
 	THECONTINENTAL: 'thecontinental',
 	
+	// Cartoons
+	JETSONS: 'jetsons',
+	JONNYQUEST: 'jonnyquest',
+	MASTERSOFTHEUNIVERSE: 'mastersoftheuniverse',
+
 	// Comedy Commands
+	DMV: 'dmv',
 	FUBAR: 'fubar',
+
+	// Fantasy Commands
+	HOUSEOFTHEDRAGON: 'houseofthedragon',
+	RINGSOFPOWER: 'ringsofpower',
+	WHEELOFTIME: 'wheeloftime',
+	WEDNESDAY: 'wednesday',
+
+	// NCIS Commands
+	NCIS: 'ncis',
+	NCISHAWAII: 'ncishawaii',
+	NCISLA: 'ncisla',
+	NCISNEWORLEANS: 'ncisneworleans',
+	NCISORIGINS: 'ncisorigins',
+	NCISSYDNEY: 'ncissydney',
+	TONYANDZIVA: 'tonyandziva',
 	
 	// Science Commands
 	COLUMBIA: 'columbia',
+	PERSONOFINTEREST: 'personofinterest',
 	PREHISTORICPLANET: 'prehistoricplanet',
 	
 	// Western Commands

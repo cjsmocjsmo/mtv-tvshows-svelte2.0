@@ -8,14 +8,14 @@
 	// Enhanced WebSocket composable
 	const ws = useWebSocket();
 	
-	// Season data stores
-	let datas1 = $state([]);
-	let datas2 = $state([]);
-	let datas3 = $state([]);
-	let datas4 = $state([]);
-	let datas5 = $state([]);
-	let datas6 = $state([]);
-	let datas7 = $state([]);
+	// Season DSNdata stores
+	let DSNdatas1 = $state([]);
+	let DSNdatas2 = $state([]);
+	let DSNdatas3 = $state([]);
+	let DSNdatas4 = $state([]);
+	let DSNdatas5 = $state([]);
+	let DSNdatas6 = $state([]);
+	let DSNdatas7 = $state([]);
 
 	let loadingSeasons = $state({
 		s1: false,
@@ -31,34 +31,34 @@
 		ws.playTVShow(tvid);
 	}
 
-	async function loadSeasonData(seasonCommand, seasonKey) {
+	async function loadSeasonDSNData(seasonCommand, seasonKey) {
 		loadingSeasons[seasonKey] = true;
 		
 		// Listen for the specific response
 		const unsubscribe = wsLastResponse.subscribe((response) => {
 			if (response && Array.isArray(response)) {
-				// Update the appropriate season data based on the command
+				// Update the appropriate season DSNdata based on the command
 				switch(seasonCommand) {
 					case 'deepspacenines1':
-						datas1 = response;
+						DSNdatas1 = response;
 						break;
 					case 'deepspacenines2':
-						datas2 = response;
+						DSNdatas2 = response;
 						break;
 					case 'deepspacenines3':
-						datas3 = response;
+						DSNdatas3 = response;
 						break;
 					case 'deepspacenines4':
-						datas4 = response;
+						DSNdatas4 = response;
 						break;
 					case 'deepspacenines5':
-						datas5 = response;
+						DSNdatas5 = response;
 						break;
 					case 'deepspacenines6':
-						datas6 = response;
+						DSNdatas6 = response;
 						break;
 					case 'deepspacenines7':
-						datas7 = response;
+						DSNdatas7 = response;
 						break;
 				}
 				loadingSeasons[seasonKey] = false;
@@ -66,7 +66,7 @@
 			}
 		});
 
-		// Request the season data
+		// Request the season DSNdata
 		const success = requestShowData(seasonCommand);
 		if (!success) {
 			console.error(`Failed to load ${seasonCommand}`);
@@ -84,13 +84,13 @@
 	onMount(async () => {
 		// Load all seasons concurrently using the enhanced WebSocket system
 		await Promise.all([
-			loadSeasonData('deepspacenines1', 's1'),
-			loadSeasonData('deepspacenines2', 's2'),
-			loadSeasonData('deepspacenines3', 's3'),
-			loadSeasonData('deepspacenines4', 's4'),
-			loadSeasonData('deepspacenines5', 's5'),
-			loadSeasonData('deepspacenines6', 's6'),
-			loadSeasonData('deepspacenines7', 's7'),
+			loadSeasonDSNData('deepspacenines1', 's1'),
+			loadSeasonDSNData('deepspacenines2', 's2'),
+			loadSeasonDSNData('deepspacenines3', 's3'),
+			loadSeasonDSNData('deepspacenines4', 's4'),
+			loadSeasonDSNData('deepspacenines5', 's5'),
+			loadSeasonDSNData('deepspacenines6', 's6'),
+			loadSeasonDSNData('deepspacenines7', 's7'),
 		]);
 	});
 </script>
@@ -106,10 +106,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s1}
 				<div class="loading">Loading Season 1...</div>
-			{:else if datas1.length === 0}
-				<div class="no-data">No episodes found for Season 1</div>
+			{:else if DSNdatas1.length === 0}
+				<div class="no-DSNdata">No episodes found for Season 1</div>
 			{:else}
-				{#each datas1 as d}
+				{#each DSNdatas1 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -120,10 +120,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s2}
 				<div class="loading">Loading Season 2...</div>
-			{:else if datas2.length === 0}
-				<div class="no-data">No episodes found for Season 2</div>
+			{:else if DSNdatas2.length === 0}
+				<div class="no-DSNdata">No episodes found for Season 2</div>
 			{:else}
-				{#each datas2 as d}
+				{#each DSNdatas2 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -134,10 +134,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s3}
 				<div class="loading">Loading Season 3...</div>
-			{:else if datas3.length === 0}
-				<div class="no-data">No episodes found for Season 3</div>
+			{:else if DSNdatas3.length === 0}
+				<div class="no-DSNdata">No episodes found for Season 3</div>
 			{:else}
-				{#each datas3 as d}
+				{#each DSNdatas3 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -148,10 +148,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s4}
 				<div class="loading">Loading Season 4...</div>
-			{:else if datas4.length === 0}
-				<div class="no-data">No episodes found for Season 4</div>
+			{:else if DSNdatas4.length === 0}
+				<div class="no-DSNdata">No episodes found for Season 4</div>
 			{:else}
-				{#each datas4 as d}
+				{#each DSNdatas4 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -162,10 +162,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s5}
 				<div class="loading">Loading Season 5...</div>
-			{:else if datas5.length === 0}
-				<div class="no-data">No episodes found for Season 5</div>
+			{:else if DSNdatas5.length === 0}
+				<div class="no-DSNdata">No episodes found for Season 5</div>
 			{:else}
-				{#each datas5 as d}
+				{#each DSNdatas5 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -176,10 +176,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s6}
 				<div class="loading">Loading Season 6...</div>
-			{:else if datas6.length === 0}
-				<div class="no-data">No episodes found for Season 6</div>
+			{:else if DSNdatas6.length === 0}
+				<div class="no-DSNdata">No episodes found for Season 6</div>
 			{:else}
-				{#each datas6 as d}
+				{#each DSNdatas6 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -190,10 +190,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s7}
 				<div class="loading">Loading Season 7...</div>
-			{:else if datas7.length === 0}
-				<div class="no-data">No episodes found for Season 7</div>
+			{:else if DSNdatas7.length === 0}
+				<div class="no-DSNdata">No episodes found for Season 7</div>
 			{:else}
-				{#each datas7 as d}
+				{#each DSNdatas7 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -266,7 +266,7 @@
 		margin-right: 0.5rem;
 	}
 	
-	.no-data {
+	.no-DSNdata {
 		display: flex;
 		align-items: center;
 		justify-content: center;

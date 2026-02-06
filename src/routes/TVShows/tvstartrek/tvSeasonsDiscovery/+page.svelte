@@ -8,12 +8,12 @@
 	// Enhanced WebSocket composable
 	const ws = useWebSocket();
 	
-	// Season data stores
-	let datas1 = $state([]);
-	let datas2 = $state([]);
-	let datas3 = $state([]);
-	let datas4 = $state([]);
-	let datas5 = $state([]);
+	// Season DISdata stores
+	let DISdatas1 = $state([]);
+	let DISdatas2 = $state([]);
+	let DISdatas3 = $state([]);
+	let DISdatas4 = $state([]);
+	let DISdatas5 = $state([]);
 	let loadingSeasons = $state({
 		s1: false,
 		s2: false,
@@ -26,28 +26,28 @@
 		ws.playTVShow(tvid);
 	}
 
-	async function loadSeasonData(seasonCommand, seasonKey) {
+	async function loadSeasonDISData(seasonCommand, seasonKey) {
 		loadingSeasons[seasonKey] = true;
 		
 		// Listen for the specific response
 		const unsubscribe = wsLastResponse.subscribe((response) => {
 			if (response && Array.isArray(response)) {
-				// Update the appropriate season data based on the command
+				// Update the appropriate season DISdata based on the command
 				switch(seasonCommand) {
 					case 'discoverys1':
-						datas1 = response;
+						DISdatas1 = response;
 						break;
 					case 'discoverys2':
-						datas2 = response;
+						DISdatas2 = response;
 						break;
 					case 'discoverys3':
-						datas3 = response;
+						DISdatas3 = response;
 						break;
 					case 'discoverys4':
-						datas4 = response;
+						DISdatas4 = response;
 						break;
 					case 'discoverys5':
-						datas5 = response;
+						DISdatas5 = response;
 						break;
 				}
 				loadingSeasons[seasonKey] = false;
@@ -55,8 +55,8 @@
 			}
 		});
 
-		// Request the season data
-		const success = requestShowData(seasonCommand);
+		// Request the season DISdata
+		const success = requestShowDISData(seasonCommand);
 		if (!success) {
 			console.error(`Failed to load ${seasonCommand}`);
 			loadingSeasons[seasonKey] = false;
@@ -73,11 +73,11 @@
 	onMount(async () => {
 		// Load all seasons concurrently using the enhanced WebSocket system
 		await Promise.all([
-			loadSeasonData('discoverys1', 's1'),
-			loadSeasonData('discoverys2', 's2'),
-			loadSeasonData('discoverys3', 's3'),
-			loadSeasonData('discoverys4', 's4'),
-			loadSeasonData('discoverys5', 's5')
+			loadSeasonDISData('discoverys1', 's1'),
+			loadSeasonDISData('discoverys2', 's2'),
+			loadSeasonDISData('discoverys3', 's3'),
+			loadSeasonDISData('discoverys4', 's4'),
+			loadSeasonDISData('discoverys5', 's5')
 		]);
 	});
 </script>
@@ -93,10 +93,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s1}
 				<div class="loading">Loading Season 1...</div>
-			{:else if datas1.length === 0}
-				<div class="no-data">No episodes found for Season 1</div>
+			{:else if DISdatas1.length === 0}
+				<div class="no-DISdata">No episodes found for Season 1</div>
 			{:else}
-				{#each datas1 as d}
+				{#each DISdatas1 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -107,10 +107,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s2}
 				<div class="loading">Loading Season 2...</div>
-			{:else if datas2.length === 0}
-				<div class="no-data">No episodes found for Season 2</div>
+			{:else if DISdatas2.length === 0}
+				<div class="no-DISdata">No episodes found for Season 2</div>
 			{:else}
-				{#each datas2 as d}
+				{#each DISdatas2 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -121,10 +121,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s3}
 				<div class="loading">Loading Season 3...</div>
-			{:else if datas3.length === 0}
-				<div class="no-data">No episodes found for Season 3</div>
+			{:else if DISdatas3.length === 0}
+				<div class="no-DISdata">No episodes found for Season 3</div>
 			{:else}
-				{#each datas3 as d}
+				{#each DISdatas3 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -135,10 +135,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s4}
 				<div class="loading">Loading Season 4...</div>
-			{:else if datas4.length === 0}
-				<div class="no-data">No episodes found for Season 4</div>
+			{:else if DISdatas4.length === 0}
+				<div class="no-DISdata">No episodes found for Season 4</div>
 			{:else}
-				{#each datas4 as d}
+				{#each DISdatas4 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -149,10 +149,10 @@
 		<div class="seaList">
 			{#if loadingSeasons.s5}
 				<div class="loading">Loading Season 5...</div>
-			{:else if datas5.length === 0}
-				<div class="no-data">No episodes found for Season 5</div>
+			{:else if DISdatas5.length === 0}
+				<div class="no-DISdata">No episodes found for Season 5</div>
 			{:else}
-				{#each datas5 as d}
+				{#each DISdatas5 as d}
 					<button onclick={playtvshow(d.TvId)}>{d.Episode}</button>
 				{/each}
 			{/if}
@@ -227,7 +227,7 @@
 		margin-right: 0.5rem;
 	}
 	
-	.no-data {
+	.no-DISdata {
 		display: flex;
 		align-items: center;
 		justify-content: center;

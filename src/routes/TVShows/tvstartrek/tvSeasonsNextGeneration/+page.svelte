@@ -4,14 +4,14 @@
   import BackArrow from '$lib/components/BackArrow.svelte';
   import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 
-  // Season data stores
-  let datas1 = writable([]);
-  let datas2 = writable([]);
-  let datas3 = writable([]);
-  let datas4 = writable([]);
-  let datas5 = writable([]);
-  let datas6 = writable([]);
-  let datas7 = writable([]);
+  // Season NGENdata stores
+  let NGENdatas1 = writable([]);
+  let NGENdatas2 = writable([]);
+  let NGENdatas3 = writable([]);
+  let NGENdatas4 = writable([]);
+  let NGENdatas5 = writable([]);
+  let NGENdatas6 = writable([]);
+  let NGENdatas7 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
@@ -38,13 +38,13 @@
   const unsubscribe = wsLastResponse.subscribe((response) => {
     if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
       switch(currentSeason) {
-        case 1: datas1.set(response); break;
-        case 2: datas2.set(response); break;
-        case 3: datas3.set(response); break;
-        case 4: datas4.set(response); break;
-        case 5: datas5.set(response); break;
-        case 6: datas6.set(response); break;
-        case 7: datas7.set(response); break;
+        case 1: NGENdatas1.set(response); break;
+        case 2: NGENdatas2.set(response); break;
+        case 3: NGENdatas3.set(response); break;
+        case 4: NGENdatas4.set(response); break;
+        case 5: NGENdatas5.set(response); break;
+        case 6: NGENdatas6.set(response); break;
+        case 7: NGENdatas7.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
@@ -66,7 +66,7 @@
     <div>
       <h1>Season 1</h1>
       <div class="seaList">
-        {#each $datas1 as d}
+        {#each $NGENdatas1 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -75,7 +75,7 @@
     <div>
       <h1>Season 2</h1>
       <div class="seaList">
-        {#each $datas2 as d}
+        {#each $NGENdatas2 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -84,7 +84,7 @@
     <div>
       <h1>Season 3</h1>
       <div class="seaList">
-        {#each $datas3 as d}
+        {#each $NGENdatas3 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -93,7 +93,7 @@
     <div>
       <h1>Season 4</h1>
       <div class="seaList">
-        {#each $datas4 as d}
+        {#each $NGENdatas4 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -102,7 +102,7 @@
     <div>
       <h1>Season 5</h1>
       <div class="seaList">
-        {#each $datas5 as d}
+        {#each $NGENdatas5 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -111,7 +111,7 @@
     <div>
       <h1>Season 6</h1>
       <div class="seaList">
-        {#each $datas6 as d}
+        {#each $NGENdatas6 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -120,7 +120,7 @@
     <div>
       <h1>Season 7</h1>
       <div class="seaList">
-        {#each $datas7 as d}
+        {#each $NGENdatas7 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>

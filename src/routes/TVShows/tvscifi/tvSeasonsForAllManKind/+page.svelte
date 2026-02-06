@@ -4,11 +4,11 @@
   import BackArrow from '$lib/components/BackArrow.svelte';
   import { requestShowData, wsLastResponse, sendMediaCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 
-  // Season data stores
-  let datas1 = writable([]);
-  let datas2 = writable([]);
-  let datas3 = writable([]);
-  let datas4 = writable([]);
+  // Season FAMdata stores
+  let FAMdatas1 = writable([]);
+  let FAMdatas2 = writable([]);
+  let FAMdatas3 = writable([]);
+  let FAMdatas4 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
@@ -35,10 +35,10 @@
   const unsubscribe = wsLastResponse.subscribe((response) => {
     if (response && Array.isArray(response) && currentSeason <= totalSeasons) {
       switch(currentSeason) {
-        case 1: datas1.set(response); break;
-        case 2: datas2.set(response); break;
-        case 3: datas3.set(response); break;
-        case 4: datas4.set(response); break;
+        case 1: FAMdatas1.set(response); break;
+        case 2: FAMdatas2.set(response); break;
+        case 3: FAMdatas3.set(response); break;
+        case 4: FAMdatas4.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
@@ -60,7 +60,7 @@
     <div>
       <h1>Season 1</h1>
       <div class="seaList">
-        {#each $datas1 as d}
+        {#each $FAMdatas1 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -69,7 +69,7 @@
     <div>
       <h1>Season 2</h1>
       <div class="seaList">
-        {#each $datas2 as d}
+        {#each $FAMdatas2 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -78,7 +78,7 @@
     <div>
       <h1>Season 3</h1>
       <div class="seaList">
-        {#each $datas3 as d}
+        {#each $FAMdatas3 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
@@ -87,7 +87,7 @@
     <div>
       <h1>Season 4</h1>
       <div class="seaList">
-        {#each $datas4 as d}
+        {#each $FAMdatas4 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
