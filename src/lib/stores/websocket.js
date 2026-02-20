@@ -56,6 +56,7 @@ export const WEBSOCKET_COMMANDS = {
 	SECRETINVASION: 'secretinvasion',
 	SHEHULK: 'shehulk',
 	WANDAVISION: 'wandavision',
+	WONDERMAN: 'wonderman',
 	
 	// Sci-Fi Commands
 	ALTEREDCARBON: 'alteredcarbon',
@@ -113,7 +114,7 @@ export const WEBSOCKET_COMMANDS = {
 	PREHISTORICPLANET: 'prehistoricplanet',
 	
 	// Western Commands
-	HFORD: 'hford'
+	HFORD: 'hford1923'
 };
 
 // Store for the WebSocket connection
