@@ -5,6 +5,8 @@
 	import { onMount } from 'svelte';
 	import WebSocketStatus from '$lib/components/WebSocketStatus.svelte';
 	import { connectWebSocket, sendCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
+	import './styles.css';
+	
 	let { children } = $props();
 
 	let state = null;
