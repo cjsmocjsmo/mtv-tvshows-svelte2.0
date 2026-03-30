@@ -3,6 +3,7 @@
 	import TvPreHistoricPlanetCard from '$lib/components/science/TVPreHistoricPlanetCard.svelte';
 	import TvColumbiaCard from '$lib/components/science/TVColumbiaCard.svelte';
 	import TVPersonOfInterestCard from '$lib/components/science/TVPersonOfInterestCard.svelte';
+	import TVForgedInFireCard from '$lib/components/science/TVForgedInFireCard.svelte';
 </script>
 
 <div>
@@ -12,6 +13,7 @@
 			<TvColumbiaCard src={"http://10.0.4.41:9998/columbia.jpg"} />
 			<TvPreHistoricPlanetCard src={"http://10.0.4.41:9998/prehistoricplanet.jpg"} />
 			<TVPersonOfInterestCard src={"http://10.0.4.41:9998/personofinterest.jpg"} />
+			<TVForgedInFireCard src={"http://10.0.4.41:9998/forgedinfire.jpg"} />
 		</div>
 	</div>
 </div>
