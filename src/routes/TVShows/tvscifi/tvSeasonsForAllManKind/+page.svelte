@@ -62,8 +62,8 @@
     <div>
       <h1>Season 1</h1>
       <div class="seaList">
-        {#each $FAMdatas1 as d}
-          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {#each $FAMdatas1 as d1}
+          <button onclick={() => playtvshow(d1.TvId)}>{d1.Episode}</button>
         {/each}
       </div>
     </div>
@@ -71,8 +71,8 @@
     <div>
       <h1>Season 2</h1>
       <div class="seaList">
-        {#each $FAMdatas2 as d}
-          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {#each $FAMdatas2 as d2}
+          <button onclick={() => playtvshow(d2.TvId)}>{d2.Episode}</button>
         {/each}
       </div>
     </div>
@@ -80,8 +80,8 @@
     <div>
       <h1>Season 3</h1>
       <div class="seaList">
-        {#each $FAMdatas3 as d}
-          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {#each $FAMdatas3 as d3}
+          <button onclick={() => playtvshow(d3.TvId)}>{d3.Episode}</button>
         {/each}
       </div>
     </div>
@@ -89,8 +89,8 @@
     <div>
       <h1>Season 4</h1>
       <div class="seaList">
-        {#each $FAMdatas4 as d}
-          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {#each $FAMdatas4 as d4}
+          <button onclick={() => playtvshow(d4.TvId)}>{d4.Episode}</button>
         {/each}
       </div>
     </div>
@@ -98,8 +98,8 @@
     <div>
       <h1>Season 5</h1>
       <div class="seaList">
-        {#each $FAMdatas5 as d}
-          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {#each $FAMdatas5 as d5}
+          <button onclick={() => playtvshow(d5.TvId)}>{d5.Episode}</button>
         {/each}
       </div>
     </div>
