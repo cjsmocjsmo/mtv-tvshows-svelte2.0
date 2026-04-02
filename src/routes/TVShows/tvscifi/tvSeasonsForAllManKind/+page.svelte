@@ -9,10 +9,11 @@
   let FAMdatas2 = writable([]);
   let FAMdatas3 = writable([]);
   let FAMdatas4 = writable([]);
+  let FAMdatas5 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
-  const totalSeasons = 4;
+  const totalSeasons = 5;
 
   function playtvshow(tvid) {
     sendMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
@@ -39,6 +40,7 @@
         case 2: FAMdatas2.set(response); break;
         case 3: FAMdatas3.set(response); break;
         case 4: FAMdatas4.set(response); break;
+        case 5: FAMdatas5.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
@@ -88,6 +90,15 @@
       <h1>Season 4</h1>
       <div class="seaList">
         {#each $FAMdatas4 as d}
+          <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
+        {/each}
+      </div>
+    </div>
+
+    <div>
+      <h1>Season 5</h1>
+      <div class="seaList">
+        {#each $FAMdatas5 as d}
           <button onclick={() => playtvshow(d.TvId)}>{d.Episode}</button>
         {/each}
       </div>
