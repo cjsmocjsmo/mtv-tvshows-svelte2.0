@@ -21,7 +21,7 @@
       loading.set(false);
       return;
     }
-    const command = `visionss${currentSeason}`;
+    const command = `maulshadowlords${currentSeason}`;
     requestShowData(command);
   }
 
