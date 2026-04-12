@@ -19,18 +19,18 @@
 	<h1>Star Wars</h1>
 	<div class="foo">
 		<div class="bar">
-			<TvSkeletonCrewCard src={"http://10.0.4.41:9998/skeletoncrew.jpg"} />
-			<TvAhsokaCard src={"http://10.0.4.41:9998/ahsoka.jpg"} />
-			<TvAndorCard src={"http://10.0.4.41:9998/andor.jpg"} />
-			<TvBadBatchCard src={"http://10.0.4.41:9998/badbatch.jpg"} />
-			<TvBobbaFettCard src={"http://10.0.4.41:9998/bobafett.jpg"} />
-			<TvMandalorianCard src={"http://10.0.4.41:9998/mandalorian.jpg"} />
-			<TvTalesOfTheEmpireCard src={"http://10.0.4.41:9998/talesoftheempire.jpg"} />
-			<TvTalesOfTheJediCard src={"http://10.0.4.41:9998/talesofthejedi.jpg"} />
-			<TvTalesOfTheUnderwroldCard src={"http://10.0.4.41:9998/talesoftheunderworld.jpg"} />
-			<TvObiWanCard src={"http://10.0.4.41:9998/obiwan.jpg"} />
-			<TvVisionsCard src={"http://10.0.4.41:9998/visions.jpg"} />
-			<TvMaulShadowLordCard src={"http://10.0.4.41:9998/maulshadowlord.jpg"} />
+			<TvSkeletonCrewCard src={"http://10.0.4.41:8080/tvthumbnails/skeletoncrew.jpg"} />
+			<TvAhsokaCard src={"http://10.0.4.41:8080/tvthumbnails/ahsoka.jpg"} />
+			<TvAndorCard src={"http://10.0.4.41:8080/tvthumbnails/andor.jpg"} />
+			<TvBadBatchCard src={"http://10.0.4.41:8080/tvthumbnails/badbatch.jpg"} />
+			<TvBobbaFettCard src={"http://10.0.4.41:8080/tvthumbnails/bobafett.jpg"} />
+			<TvMandalorianCard src={"http://10.0.4.41:8080/tvthumbnails/mandalorian.jpg"} />
+			<TvTalesOfTheEmpireCard src={"http://10.0.4.41:8080/tvthumbnails/talesoftheempire.jpg"} />
+			<TvTalesOfTheJediCard src={"http://10.0.4.41:8080/tvthumbnails/talesofthejedi.jpg"} />
+			<TvTalesOfTheUnderwroldCard src={"http://10.0.4.41:8080/tvthumbnails/talesoftheunderworld.jpg"} />
+			<TvObiWanCard src={"http://10.0.4.41:8080/tvthumbnails/obiwan.jpg"} />
+			<TvVisionsCard src={"http://10.0.4.41:8080/tvthumbnails/visions.jpg"} />
+			<TvMaulShadowLordCard src={"http://10.0.4.41:8080/tvthumbnails/maulshadowlord.jpg"} />
 		</div>
 	</div>
 </div>

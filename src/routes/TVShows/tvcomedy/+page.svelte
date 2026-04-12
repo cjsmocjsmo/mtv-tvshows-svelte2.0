@@ -9,8 +9,8 @@
 	<BackArrow path="/" />
 	<div class="foo">
 		<ul class="bar">
-			<TvFuuBarCard src={"http://10.0.4.41:9998/fubar.jpg"} />
-			<TvDMVCard src={"http://10.0.4.41:9998/dmv.jpg"} />
+			<TvFuuBarCard src={"http://10.0.4.41:8080/tvthumbnails/fubar.jpg"} />
+			<TvDMVCard src={"http://10.0.4.41:8080/tvthumbnails/dmv.jpg"} />
 		</ul>
 	</div>
 </div>

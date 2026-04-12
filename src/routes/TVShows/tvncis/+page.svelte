@@ -17,13 +17,13 @@
 	<h1>NCIS</h1>
 	<div class="foo">
 		<div class="bar">
-			<NCIS src={"http://10.0.4.41:9998/ncis.jpg"} />
-			<NCISLA src={"http://10.0.4.41:9998/ncis_los_angeles.jpg"} />
-			<NCISNewOrleans src={"http://10.0.4.41:9998/ncis_new_orleans.jpg"} />
-			<NCISHawaii src={"http://10.0.4.41:9998/ncis_hawaii.jpg"} />
-			<NCISSydney src={"http://10.0.4.41:9998/ncis_sydney.jpg"} />
-			<NCISOrigins src={"http://10.0.4.41:9998/ncis_origins.jpg"} />
-			<TonyAndZiva src={"http://10.0.4.41:9998/tonyandziva.jpg"} />
+			<NCIS src={"http://10.0.4.41:8080/tvthumbnails/ncis.jpg"} />
+			<NCISLA src={"http://10.0.4.41:8080/tvthumbnails/ncis_los_angeles.jpg"} />
+			<NCISNewOrleans src={"http://10.0.4.41:8080/tvthumbnails/ncis_new_orleans.jpg"} />
+			<NCISHawaii src={"http://10.0.4.41:8080/tvthumbnails/ncis_hawaii.jpg"} />
+			<NCISSydney src={"http://10.0.4.41:8080/tvthumbnails/ncis_sydney.jpg"} />
+			<NCISOrigins src={"http://10.0.4.41:8080/tvthumbnails/ncis_origins.jpg"} />
+			<TonyAndZiva src={"http://10.0.4.41:8080/tvthumbnails/tonyandziva.jpg"} />
 		</div>
 	</div>
 </div>

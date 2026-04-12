@@ -8,7 +8,7 @@
 	<h1>Western</h1>
 	<div class="foo">
 		<div class="bar">
-			<TvhFord1923Card src={"http://10.0.4.41:9998/1923.jpg"} />
+			<TvhFord1923Card src={"http://10.0.4.41:8080/tvthumbnails/1923.jpg"} />
 		</div>
 	</div>
 </div>

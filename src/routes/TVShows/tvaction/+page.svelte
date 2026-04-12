@@ -11,10 +11,10 @@
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
-			<Shogun src={"http://10.0.4.41:9998/shogun.jpg"} />
-            <TheContinental src={"http://10.0.4.41:9998/continental.jpg"} />
-			<MobLand src={"http://10.0.4.41:9998/mobland.jpg"} />
-			<DarkWinds src={"http://10.0.4.41:9998/darkwinds.jpg"} />
+			<Shogun src={"http://10.0.4.41:8080/tvthumbnails/shogun.jpg"} />
+            <TheContinental src={"http://10.0.4.41:8080/tvthumbnails/continental.jpg"} />
+			<MobLand src={"http://10.0.4.41:8080/tvthumbnails/mobland.jpg"} />
+			<DarkWinds src={"http://10.0.4.41:8080/tvthumbnails/darkwinds.jpg"} />
 		</div>
 	</div>
 </div>

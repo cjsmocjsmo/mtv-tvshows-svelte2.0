@@ -10,9 +10,9 @@
 	<BackArrow path="/" />
 	<div class="foo">
 		<ul class="bar">
-			<TVJetsonsCard src={"http://10.0.4.41:9998/jetsons.jpg"} />
-			<TVJonnyQuestCard src={"http://10.0.4.41:9998/jonnyquest.jpg"} />
-			<TVMastersOfTheUniverseCard src={"http://10.0.4.41:9998/mastersoftheuniverse.jpg"} />
+			<TVJetsonsCard src={"http://10.0.4.41:8080/tvthumbnails/jetsons.jpg"} />
+			<TVJonnyQuestCard src={"http://10.0.4.41:8080/tvthumbnails/jonnyquest.jpg"} />
+			<TVMastersOfTheUniverseCard src={"http://10.0.4.41:8080/tvthumbnails/mastersoftheuniverse.jpg"} />
 		</ul>
 	</div>
 </div>

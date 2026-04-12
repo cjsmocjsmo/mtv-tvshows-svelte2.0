@@ -17,16 +17,16 @@
 	<BackArrow path="/" />
 	<div class="foo">
 		<div class="bar">
-			<SecretInvasionCard src={"http://10.0.4.41:9998/secret_invasion.jpg"} />
-			<TvIAmGrootCard src={"http://10.0.4.41:9998/iamgroot.jpg"} />
-			<TvLokiCard src={"http://10.0.4.41:9998/loki.jpg"} />
-			<MoonKnightCard src={"http://10.0.4.41:9998/moonknight.jpg"} />
-			<SheHulkCard src={"http://10.0.4.41:9998/shehulk.jpg"} />
-			<TvHawkeyeCard src={"http://10.0.4.41:9998/hawkeye.jpg"} />
-			<TvFalconWinterSoldierCard src={"http://10.0.4.41:9998/falconwintersoldier.jpg"} />
-			<WandavisionCard src={"http://10.0.4.41:9998/wandavision.jpg"} />
-			<IronHeartCard src={"http://10.0.4.41:9998/ironheart.jpg"} />
-			<WondermanCard src={"http://10.0.4.41:9998/wonderman.jpg"} />
+			<SecretInvasionCard src={"http://10.0.4.41:8080/tvthumbnails/secret_invasion.jpg"} />
+			<TvIAmGrootCard src={"http://10.0.4.41:8080/tvthumbnails/iamgroot.jpg"} />
+			<TvLokiCard src={"http://10.0.4.41:8080/tvthumbnails/loki.jpg"} />
+			<MoonKnightCard src={"http://10.0.4.41:8080/tvthumbnails/moonknight.jpg"} />
+			<SheHulkCard src={"http://10.0.4.41:8080/tvthumbnails/shehulk.jpg"} />
+			<TvHawkeyeCard src={"http://10.0.4.41:8080/tvthumbnails/hawkeye.jpg"} />
+			<TvFalconWinterSoldierCard src={"http://10.0.4.41:8080/tvthumbnails/falconwintersoldier.jpg"} />
+			<WandavisionCard src={"http://10.0.4.41:8080/tvthumbnails/wandavision.jpg"} />
+			<IronHeartCard src={"http://10.0.4.41:8080/tvthumbnails/ironheart.jpg"} />
+			<WondermanCard src={"http://10.0.4.41:8080/tvthumbnails/wonderman.jpg"} />
 		</div>
 	</div>
 </div>

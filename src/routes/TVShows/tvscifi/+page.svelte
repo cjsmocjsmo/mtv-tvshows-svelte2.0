@@ -20,19 +20,19 @@
 	<h1>Sci-Fi</h1>
 	<div class="foo">
 		<div class="bar">
-			<TvFalloutCard src={"http://10.0.4.41:9998/fallout.jpg"} />
-			<TvSiloCard src={"http://10.0.4.41:9998/silo.jpg"} />
-			<TvTheLastOfUsCard src={"http://10.0.4.41:9998/lastofus.jpg"} />
-			<TvOrvilleCard src={"http://10.0.4.41:9998/orville.jpg"} />
-			<TvHaloCard src={"http://10.0.4.41:9998/halo.jpg"} />
-			<TvForAllManKindCard src={"http://10.0.4.41:9998/forallmankind.jpg"} />
-			<TvMonarchLegacyOfMonstersCard src={"http://10.0.4.41:9998/monarchlegacyofmonsters.jpg"} />
-			<TvFoundationCard src={"http://10.0.4.41:9998/foundation.jpg"} />
-			<TvAlteredCarbonCard src={"http://10.0.4.41:9998/alteredcarbon.jpg"} />
-			<TvCowboyBebopCard src={"http://10.0.4.41:9998/cowboy_bebop.jpg"} />
-			<TvLostInSpaceCard src={"http://10.0.4.41:9998/lostinspace.jpg"} />
-			<TvRaisedByWolvesCard src={"http://10.0.4.41:9998/raisedbywolves.jpg"} />
-			<TvNightSkyCard src={"http://10.0.4.41:9998/nightsky.jpg"} />
+			<TvFalloutCard src={"http://10.0.4.41:8080/tvthumbnails/fallout.jpg"} />
+			<TvSiloCard src={"http://10.0.4.41:8080/tvthumbnails/silo.jpg"} />
+			<TvTheLastOfUsCard src={"http://10.0.4.41:8080/tvthumbnails/lastofus.jpg"} />
+			<TvOrvilleCard src={"http://10.0.4.41:8080/tvthumbnails/orville.jpg"} />
+			<TvHaloCard src={"http://10.0.4.41:8080/tvthumbnails/halo.jpg"} />
+			<TvForAllManKindCard src={"http://10.0.4.41:8080/tvthumbnails/forallmankind.jpg"} />
+			<TvMonarchLegacyOfMonstersCard src={"http://10.0.4.41:8080/tvthumbnails/monarchlegacyofmonsters.jpg"} />
+			<TvFoundationCard src={"http://10.0.4.41:8080/tvthumbnails/foundation.jpg"} />
+			<TvAlteredCarbonCard src={"http://10.0.4.41:8080/tvthumbnails/alteredcarbon.jpg"} />
+			<TvCowboyBebopCard src={"http://10.0.4.41:8080/tvthumbnails/cowboy_bebop.jpg"} />
+			<TvLostInSpaceCard src={"http://10.0.4.41:8080/tvthumbnails/lostinspace.jpg"} />
+			<TvRaisedByWolvesCard src={"http://10.0.4.41:8080/tvthumbnails/raisedbywolves.jpg"} />
+			<TvNightSkyCard src={"http://10.0.4.41:8080/tvthumbnails/nightsky.jpg"} />
 		</div>
 	</div>
 </div>
