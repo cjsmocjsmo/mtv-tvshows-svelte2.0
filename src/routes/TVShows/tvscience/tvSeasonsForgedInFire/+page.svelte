@@ -13,10 +13,12 @@
   let FIFdatas6 = writable([]);
   let FIFdatas7 = writable([]);
   let FIFdatas8 = writable([]);
+  let FIFdatas9 = writable([]);
+  let FIFdatas10 = writable([]);
 
   let loading = writable(true);
   let currentSeason = 1;
-  const totalSeasons = 8;
+  const totalSeasons = 10;
 
   function playtvshow(tvid) {
     sendMediaCommand(WEBSOCKET_COMMANDS.SET_TV_MEDIA, tvid);
@@ -47,6 +49,8 @@
         case 6: FIFdatas6.set(response); break;
         case 7: FIFdatas7.set(response); break;
         case 8: FIFdatas8.set(response); break;
+        case 9: FIFdatas9.set(response); break;
+        case 10: FIFdatas10.set(response); break;
       }
       currentSeason++;
       setTimeout(loadNextSeason, 300);
@@ -129,7 +133,23 @@
           <button onclick={() => playtvshow(d8.TvId)}>{d8.Episode}</button>
         {/each}
       </div>
-    </div>  
+    </div> 
+    <div>
+      <h1>Season 9</h1>
+      <div class="seaList">
+        {#each $FIFdatas9 as d9}
+          <button onclick={() => playtvshow(d9.TvId)}>{d9.Episode}</button>
+        {/each}
+      </div>
+    </div> 
+    <div>
+      <h1>Season 10</h1>
+      <div class="seaList">
+        {#each $FIFdatas10 as d10}
+          <button onclick={() => playtvshow(d10.TvId)}>{d10.Episode}</button>
+        {/each}
+      </div>
+    </div>
   {/if}
 </main>
 

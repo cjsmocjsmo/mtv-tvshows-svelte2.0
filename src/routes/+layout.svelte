@@ -1,27 +1,25 @@
 <script>
-
-	import { wsLastResponse } from '$lib/stores/websocket.js';
-	import { get } from 'svelte/store';
-	import { onMount } from 'svelte';
+	import { isPlaying } from '$lib/stores/isPlaying.js';
+	// import { wsLastResponse } from '$lib/stores/websocket.js';
+	// import { get } from 'svelte/store';
+	// import { onMount } from 'svelte';
 	import WebSocketStatus from '$lib/components/WebSocketStatus.svelte';
 	import { connectWebSocket, sendCommand, WEBSOCKET_COMMANDS } from '$lib/stores/websocket.js';
 	import './styles.css';
 	
 	let { children } = $props();
 
-	let state = null;
-
-	// Connect WebSocket and get state on mount
-	onMount(() => {
-		connectWebSocket();
-		sendCommand('getstate');
-		const unsubscribe = wsLastResponse.subscribe((data) => {
-			if (data && data.command === 'getstate') {
-				state = data;
-				unsubscribe();
-			}
-		});
-	});
+	// Connect WebSocket and get isPlaying on mount
+	// onMount(() => {
+	// 	connectWebSocket();
+	// 	sendCommand('getisPlaying');
+	// 	const unsubscribe = wsLastResponse.subscribe((data) => {
+	// 		if (data && data.command === 'getisPlaying') {
+	// 			isPlaying = data;
+	// 			unsubscribe();
+	// 		}
+	// 	});
+	// });
 
 	let prev = () => {
 		sendCommand(WEBSOCKET_COMMANDS.PREVIOUS);
@@ -30,14 +28,17 @@
 
 	let play = () => {
 		sendCommand(WEBSOCKET_COMMANDS.PLAY);
+		isPlaying.set(true)
 	}
 
 	let pause = () => {
 		sendCommand(WEBSOCKET_COMMANDS.PAUSE);
+		isPlaying.set(false)
 	}
 
 	let stop = () => {
 		sendCommand(WEBSOCKET_COMMANDS.STOP);
+		isPlaying.set(false)
 	}
 
 	let next = () => {
@@ -74,32 +75,32 @@
 				</svg>
 			</div>
 		
-			{#if ! state}
-			<div
-				id="playBtn"
-				class="controlBtn"
-				onclick={play}
-				onkeypress={play}
-				onkeyup={play}
-				onkeydown={play}
-				role="button"
-				tabindex="0"
-			>
-				<p>Play</p>
-			</div>
+			{#if ! isPlaying}
+				<div
+					id="playBtn"
+					class="controlBtn"
+					onclick={play}
+					onkeypress={play}
+					onkeyup={play}
+					onkeydown={play}
+					role="button"
+					tabindex="0"
+				>
+					<p>Play</p>
+				</div>
 			{:else }
-			<div
-				id="pauseBtn"
-				class="controlBtn"
-				onclick={pause}
-				onkeypress={pause}
-				onkeyup={pause}
-				onkeydown={pause}
-				role="button"
-				tabindex="0"
-			>
-				<p>Pause</p>
-			</div>
+				<div
+					id="pauseBtn"
+					class="controlBtn"
+					onclick={pause}
+					onkeypress={pause}
+					onkeyup={pause}
+					onkeydown={pause}
+					role="button"
+					tabindex="0"
+				>
+					<p>Pause</p>
+				</div>
 			{/if}
 			<div
 				id="stopBtn"

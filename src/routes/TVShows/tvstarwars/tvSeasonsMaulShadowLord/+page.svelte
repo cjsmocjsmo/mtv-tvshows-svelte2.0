@@ -25,8 +25,6 @@
     requestShowData(command);
   }
 
-
-  
   onMount(() => {
     loadNextSeason();
   });
